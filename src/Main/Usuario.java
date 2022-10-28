@@ -1,42 +1,69 @@
 package Main;
 
 public class Usuario {
-
+	private String dni;
 	private String nombre;
 	private String apellido;
-	private int edad;
+	private String email;
+	private String contrasena;
+	
+	
 	
 	
 		
-	public Usuario(String nombre, String apellido, int edad) {
+
+	public Usuario(String dni, String nombre, String apellido, String email, String contrasena) {
 		super();
+		this.dni = dni;
 		this.nombre = nombre;
 		this.apellido = apellido;
-		this.edad = edad;
+		this.email = email;
+		this.contrasena = contrasena;
 	}
-	
-	
+
+
+
 	public Usuario() {
 		super();
+		this.dni = "";
 		this.nombre = "";
 		this.apellido = "";
-		this.edad = 0;
+		this.email = "";
+		this.contrasena = "";
 	}
 
-	
-	
+
+
 	public Usuario(Usuario u) {
 		super();
+		this.dni = u.dni;
 		this.nombre = u.nombre;
 		this.apellido = u.apellido;
-		this.edad = u.edad;
+		this.email = u.email;
+		this.contrasena = u.contrasena;
 	}
 
 
-	
+
+
+
+
+	public String getDni() {
+		return dni;
+	}
+
+
+
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+
+
+
 	public String getNombre() {
 		return nombre;
 	}
+
 
 
 	public void setNombre(String nombre) {
@@ -44,9 +71,11 @@ public class Usuario {
 	}
 
 
+
 	public String getApellido() {
 		return apellido;
 	}
+
 
 
 	public void setApellido(String apellido) {
@@ -54,22 +83,37 @@ public class Usuario {
 	}
 
 
-	public int getEdad() {
-		return edad;
+
+	public String getEmail() {
+		return email;
 	}
 
 
-	public void setEdad(int edad) {
-		this.edad = edad;
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	
-	
+
+
+	public String getContrasena() {
+		return contrasena;
+	}
+
+
+
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+
+
 
 	@Override
 	public String toString() {
-		return "Usuario [nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + "]";
+		return "Usuario [dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email
+				+ ", contrasena=" + contrasena + "]";
 	}
+
 
 
 	public static void main(String[] args) {
