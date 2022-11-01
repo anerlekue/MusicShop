@@ -5,9 +5,11 @@ import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class BD {
  
@@ -129,5 +131,39 @@ public class BD {
 				ex.printStackTrace();						
 			}				
 		}
-		
-	}
+		public static int buscarUsuario(String Nombre, String contrasenya) {
+			int resultado = 0;
+			try (Connection con = DriverManager.getConnection(CONNECTION_STRING);
+				    Statement stmt = con.createStatement()) {
+					String query = "SELECT * FROM USUARIO WHERE Nombre='" + Nombre + "'";
+					ResultSet rs = stmt.executeQuery(query);
+				if (rs.next()) {
+					String cl = rs.getString(3);
+					if (cl.equals(contrasenya)) {
+						resultado = 1;
+					} else {
+						resultado = 2;
+					}
+				} else {
+					resultado = 0;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return resultado;
+
+		}
+		public static void registrarUsuario(String DNI, String nombre, String email, String contrasenya) {
+			
+			try (Connection con = DriverManager.getConnection(CONNECTION_STRING);
+				    Statement stmt = con.createStatement()) {
+					String query = "INSERT INTO USUARIO VALUES('"+ DNI +"','"+ nombre + "','" + email + "','" + contrasenya + "')";
+					ResultSet rs = stmt.executeQuery(query);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+}
+
