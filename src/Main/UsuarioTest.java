@@ -19,7 +19,7 @@ public class UsuarioTest {
 
 	@Before
 	public void setUp() throws Exception{
-		usuario = new Usuario( dni, nombre, apellido, email, contrasena);
+		usuario = new Usuario();
 	}
 	
 	@After

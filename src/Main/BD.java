@@ -12,7 +12,7 @@ import java.util.List;
 public class BD {
  
 		protected static final String DRIVER_NAME = "org.sqlite.JDBC";
-		protected static final String DATABASE_FILE = "db/database.db";
+		protected static final String DATABASE_FILE = "db/BD.db";
 		protected static final String CONNECTION_STRING = "jdbc:sqlite:" + DATABASE_FILE;
 		
 		public BD() {		
@@ -22,8 +22,7 @@ public class BD {
 				System.err.println(String.format("* No carga el driver de BBDD: %s", ex.getMessage()));
 				ex.printStackTrace();
 			}
-		}
-			
+		}	
 		public void crearBBDD() {
 			//Crea la conexion y el statemment
 			try (Connection con = DriverManager.getConnection(CONNECTION_STRING);
@@ -80,7 +79,6 @@ public class BD {
 			}			
 			return usuarios;
 		}
-
 		public void actualizarPassword(Usuario usuario, String newPassword) {
 			//Se abre la conexión y se obtiene el Statement
 			try (Connection con = DriverManager.getConnection(CONNECTION_STRING);
@@ -96,7 +94,6 @@ public class BD {
 				ex.printStackTrace();						
 			}		
 		}
-		
 		public void borrarDatos() {
 			//Se abre la conexión y se obtiene el Statement
 			try (Connection con = DriverManager.getConnection(CONNECTION_STRING);

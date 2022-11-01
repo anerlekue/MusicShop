@@ -9,6 +9,8 @@ public class Usuario {
 	private String contrasena;
 	
 	public Usuario() {
+		super();
+
 	}
 
 	public int getId() {
