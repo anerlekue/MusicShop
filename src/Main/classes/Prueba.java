@@ -1,4 +1,4 @@
-package Main;
+package Main.classes;
 
 public class Prueba {
 

@@ -1,4 +1,4 @@
-package Main;
+package Main.ui;
 
 public class VentanaPrincipal {
 

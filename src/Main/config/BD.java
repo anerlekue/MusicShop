@@ -1,4 +1,4 @@
-package Main;
+package Main.config;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;

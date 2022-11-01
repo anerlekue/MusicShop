@@ -1,9 +1,11 @@
-package Main;
+package Main.test;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import Main.classes.Producto;
 
 public class ProductoTest {
 	private Producto p;
