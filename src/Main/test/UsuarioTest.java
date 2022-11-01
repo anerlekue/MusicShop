@@ -8,9 +8,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import Main.classes.Usuario;
+import Main.config.BD;
 
 public class UsuarioTest {
 	
+	private BD db;
 	private Usuario usuario;
 	private String dni = "dni";
 	private String nombre = "nombre";
@@ -38,6 +40,9 @@ public class UsuarioTest {
 		assertEquals(email, usuario.getEmail());
 		assertEquals(contrasena, usuario.getContrasena());
 	}
+	
+	
+	
 	
 	@Test
 	public void testGetDni() {
