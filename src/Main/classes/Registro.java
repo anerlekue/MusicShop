@@ -8,7 +8,7 @@ public class Registro {
 	}
 	
 	public void registrar() {
-		 
+		
 	}
 
 }
