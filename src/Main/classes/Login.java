@@ -8,7 +8,7 @@ public class Login {
 	}
 
 	public void LoginValidar() {
-		 
+		  
 	}
 	public void accederTienda() {
 		 
