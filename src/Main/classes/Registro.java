@@ -5,23 +5,23 @@ public class Registro {
 	private String correoRegistro;
 	private Striing contrasenaRegistro;
 	
-	public Login( String contrasenaRegistro, String correoRegistro {
+	public Registro( String contrasenaRegistro, String correoRegistro {
 		super();
 		this.contrasenaRegistro = contrasenaRegistro;
 		this.correoRegistro = correoRegistro;
 	}
 	
-	public Login() {
+	public Registro() {
 		super();
 		this.contrasenaRegistro = "";
 		this.correoRegistro = "";
 	}
 	
 
-	public Login(Login l) {
+	public Registro(Login r) {
 		super();
-		this.contrasenaRegistro = l.contrasenaRegistro;
-		this.correoRegistro = l.correoRegistro;
+		this.contrasenaRegistro = r.contrasenaRegistro;
+		this.correoRegistro = r.correoRegistro;
 	}
 	
 	
