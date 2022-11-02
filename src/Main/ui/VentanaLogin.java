@@ -16,7 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JPasswordField;
-import net.miginfocom.swing.MigLayout;
+//import net.miginfocom.swing.MigLayout;
 
 
 public class VentanaLogin extends JFrame {
@@ -29,6 +29,8 @@ public class VentanaLogin extends JFrame {
 	private static String nick;
 	private String con;
 	private JPasswordField txtClave;
+	private JTextField textUsr;
+	private JPasswordField passwordField;
 
 	public static String getNick() {
 		return nick;
@@ -52,20 +54,46 @@ public class VentanaLogin extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(160, 82, 45));
+		contentPane.setForeground(new Color(160, 82, 45));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
-		JPanel pArriba = new JPanel();
-		pArriba.setBounds(0, 5, 434, 36);
-		pArriba.setBackground(new Color(0, 0, 0, 0));
-		contentPane.add(pArriba);
-
-		JLabel lblTitle = new JLabel("MusicShop");
-		lblTitle.setForeground(Color.BLACK);
-		lblTitle.setFont(new Font("Plantagenet Cherokee", Font.BOLD | Font.ITALIC, 20));
-		pArriba.add(lblTitle);
-
+		
+		JLabel lblUsr = new JLabel("Usuario");
+		lblUsr.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblUsr.setBounds(74, 83, 78, 32);
+		contentPane.add(lblUsr);
+		
+		JLabel lblPsw = new JLabel("Password");
+		lblPsw.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblPsw.setBounds(74, 144, 91, 32);
+		contentPane.add(lblPsw);
+		
+		textUsr = new JTextField();
+		textUsr.setBounds(186, 92, 129, 19);
+		contentPane.add(textUsr);
+		textUsr.setColumns(10);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(186, 153, 129, 19);
+		contentPane.add(passwordField);
+		
+		JLabel lblNewLabel = new JLabel("MUSIC SHOP");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel.setBounds(157, 10, 122, 39);
+		contentPane.add(lblNewLabel);
+		
+		JButton btnRegistrarse = new JButton("REGISTRARSE");
+		btnRegistrarse.setFont(new Font("Tahoma", Font.BOLD, 10));
+		btnRegistrarse.setBounds(94, 213, 105, 21);
+		contentPane.add(btnRegistrarse);
+		
+		JButton btnInicioSesion = new JButton("INICIO SESION");
+		btnInicioSesion.setFont(new Font("Tahoma", Font.BOLD, 10));
+		btnInicioSesion.setBounds(242, 213, 105, 21);
+		contentPane.add(btnInicioSesion);
+		/*
 		JPanel pCentro = new JPanel();
 		pCentro.setBounds(0, 41, 434, 182);
 		contentPane.add(pCentro);
@@ -75,30 +103,35 @@ public class VentanaLogin extends JFrame {
 		pAbajo.setBounds(0, 223, 434, 38);
 		pAbajo.setBackground(new Color(0, 0, 0, 0));
 		contentPane.add(pAbajo);
-		pCentro.setLayout(new MigLayout("", "[33px][71.00px][85px][7px][][115.00]", "[20px][][][]"));
+								pCentro.setLayout(null);
 						
 								JLabel lblUsuario = new JLabel("USUARIO :");
+								lblUsuario.setBounds(114, 34, 61, 14);
 								lblUsuario.setForeground(Color.BLACK);
 								lblUsuario.setFont(new Font("Arial", Font.BOLD, 12));
 								lblUsuario.setHorizontalAlignment(SwingConstants.LEFT);
-								pCentro.add(lblUsuario, "cell 2 1,alignx left,aligny center");
+								pCentro.add(lblUsuario);
 						
 								txtNick = new JTextField();
+								txtNick.setBounds(217, 31, 93, 19);
 								txtNick.setBackground(Color.WHITE);
-								pCentro.add(txtNick, "cell 4 1,alignx left,aligny top");
+								pCentro.add(txtNick);
 								txtNick.setColumns(10);
 						
 								JLabel lblContrasea = new JLabel("CONTRASE\u00D1A :");
+								lblContrasea.setBounds(114, 86, 90, 14);
 								lblContrasea.setForeground(Color.BLACK);
 								lblContrasea.setFont(new Font("Arial", Font.BOLD, 12));
-								pCentro.add(lblContrasea, "cell 2 3,alignx left,aligny center");
+								pCentro.add(lblContrasea);
 								
 										txtClave = new JPasswordField();
+										txtClave.setBounds(217, 83, 93, 19);
 										txtClave.setBackground(Color.WHITE);
-										pCentro.add(txtClave, "cell 4 3,growx,aligny top");
+										pCentro.add(txtClave);
 
+		*/
 		final JFrame ventana = this;
-
+		
 		JButton btnR = new JButton("Registrarse");
 		btnR.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -108,7 +141,7 @@ public class VentanaLogin extends JFrame {
 
 			}
 		});
-		pAbajo.add(btnR);
+		//pAbajo.add(btnR);
 
 		JButton btnAceptar = new JButton("Iniciar Sesion");
 		btnAceptar.addActionListener(new ActionListener() {
@@ -138,7 +171,7 @@ public class VentanaLogin extends JFrame {
 			}
 		});
 		
-		pAbajo.add(btnAceptar);
+		//pAbajo.add(btnAceptar);
 
 	}								
 }
