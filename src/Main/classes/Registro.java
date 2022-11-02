@@ -3,9 +3,9 @@ package Main.classes;
 public class Registro {
 
 	private String correoRegistro;
-	private Striing contrasenaRegistro;
+	private String contrasenaRegistro;
 	
-	public Registro( String contrasenaRegistro, String correoRegistro {
+	public Registro( String contrasenaRegistro, String correoRegistro) {
 		super();
 		this.contrasenaRegistro = contrasenaRegistro;
 		this.correoRegistro = correoRegistro;
@@ -18,7 +18,7 @@ public class Registro {
 	}
 	
 
-	public Registro(Login r) {
+	public Registro(Registro r) {
 		super();
 		this.contrasenaRegistro = r.contrasenaRegistro;
 		this.correoRegistro = r.correoRegistro;
