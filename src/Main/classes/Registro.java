@@ -6,5 +6,9 @@ public class Registro {
 		// TODO Auto-generated method stub
 
 	}
+	
+	public void registrar() {
+		
+	}
 
 }

@@ -24,10 +24,9 @@ public class Main {
 		db.insertarDatos(user1);
 		System.out.println("dato insertado");
 
+	}
+	public void ejecutarLogin() {
 		
-		
-
-
 	}
 
 }
