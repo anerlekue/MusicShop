@@ -7,7 +7,7 @@ public class Carrito {
 	private String fecha;
 	private int precio;
 
-	public Carrito(int id, String nombre, String fecha, String precio) {
+	public Carrito(int id, String nombre, String fecha, int precio) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
