@@ -166,5 +166,9 @@ public class VentanaRegistro extends JFrame {
 						gbc_txtContrasenya.gridy = 4;
 						panel_2.add(txtContrasenya, gbc_txtContrasenya);
 	}
+	  public static void main(String[] args) {
+	        VentanaRegistro vr = new VentanaRegistro();      // creamos una ventana
+	        vr.setVisible(true);             // hacemos visible la ventana creada
+	    }
 
 }

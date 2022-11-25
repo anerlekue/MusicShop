@@ -16,7 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JPasswordField;
-//import net.miginfocom.swing.MigLayout;
+
 
 
 public class VentanaLogin extends JFrame {
@@ -173,5 +173,9 @@ public class VentanaLogin extends JFrame {
 		
 		//pAbajo.add(btnAceptar);
 
-	}								
+	}		
+	  public static void main(String[] args) {
+	        VentanaLogin vl = new VentanaLogin();      // creamos una ventana
+	       vl.setVisible(true);             // hacemos visible la ventana creada
+	    }
 }
