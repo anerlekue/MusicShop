@@ -9,6 +9,8 @@ import config.BD;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -93,43 +95,7 @@ public class VentanaLogin extends JFrame {
 		btnInicioSesion.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnInicioSesion.setBounds(242, 213, 105, 21);
 		contentPane.add(btnInicioSesion);
-		/*
-		JPanel pCentro = new JPanel();
-		pCentro.setBounds(0, 41, 434, 182);
-		contentPane.add(pCentro);
-		pCentro.setBackground(new Color(0, 0, 0, 0));
-
-		JPanel pAbajo = new JPanel();
-		pAbajo.setBounds(0, 223, 434, 38);
-		pAbajo.setBackground(new Color(0, 0, 0, 0));
-		contentPane.add(pAbajo);
-								pCentro.setLayout(null);
-						
-								JLabel lblUsuario = new JLabel("USUARIO :");
-								lblUsuario.setBounds(114, 34, 61, 14);
-								lblUsuario.setForeground(Color.BLACK);
-								lblUsuario.setFont(new Font("Arial", Font.BOLD, 12));
-								lblUsuario.setHorizontalAlignment(SwingConstants.LEFT);
-								pCentro.add(lblUsuario);
-						
-								txtNick = new JTextField();
-								txtNick.setBounds(217, 31, 93, 19);
-								txtNick.setBackground(Color.WHITE);
-								pCentro.add(txtNick);
-								txtNick.setColumns(10);
-						
-								JLabel lblContrasea = new JLabel("CONTRASE\u00D1A :");
-								lblContrasea.setBounds(114, 86, 90, 14);
-								lblContrasea.setForeground(Color.BLACK);
-								lblContrasea.setFont(new Font("Arial", Font.BOLD, 12));
-								pCentro.add(lblContrasea);
-								
-										txtClave = new JPasswordField();
-										txtClave.setBounds(217, 83, 93, 19);
-										txtClave.setBackground(Color.WHITE);
-										pCentro.add(txtClave);
-
-		*/
+		
 		final JFrame ventana = this;
 		
 		JButton btnR = new JButton("Registrarse");
@@ -141,7 +107,44 @@ public class VentanaLogin extends JFrame {
 
 			}
 		});
-		//pAbajo.add(btnR);
+		
+		
+		btnRegistrarse.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				new VentanaRegistro();
+				dispose();
+				
+				 
+
+			}
+		});
+		
 
 		JButton btnAceptar = new JButton("Iniciar Sesion");
 		btnAceptar.addActionListener(new ActionListener() {
@@ -156,11 +159,9 @@ public class VentanaLogin extends JFrame {
 
 					ventana.setVisible(false);
 					if (nick.equals("admin") && con.equals("admin1")) {
-						//VentanaAdmin vpa = new VentanaAdmin();
-						//vpa.setVisible(true);
+						
 					} else {
-						//VentanaPrincipal vpc = new VentanaPrincipal();
-						//vpc.setVisible(true);
+						
 					}
 
 				} else if (resultado == 2) {
@@ -171,7 +172,7 @@ public class VentanaLogin extends JFrame {
 			}
 		});
 		
-		//pAbajo.add(btnAceptar);
+	
 
 	}		
 	  public static void main(String[] args) {
