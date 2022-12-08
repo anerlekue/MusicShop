@@ -2,7 +2,10 @@ package ui;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
 
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -11,11 +14,13 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
+import javax.swing.Action;
 
 	public class VentanaGestionStock extends JFrame{
 		
 		private static final long serialVersionUID = 1L;
 		private JPanel contentPane;
+		private final Action action = new botonAtras();
 
 		
 		public VentanaGestionStock() {
@@ -59,10 +64,23 @@ import javax.swing.border.MatteBorder;
 			JButton btnAtras = new JButton("ATRÁS");
 			btnAtras.setFont(new Font("Tahoma", Font.BOLD, 10));
 			btnAtras.setBounds(331, 218, 76, 21);
+			btnAtras.setAction(action);
 			contentPane.add(btnAtras);
-			
+				
 			
 			};
+			
+			private class botonAtras extends AbstractAction {
+				public botonAtras() {
+					putValue(NAME, "Atras");
+					putValue(SHORT_DESCRIPTION, "ir a la ventana anterior");
+				}
+				public void actionPerformed(ActionEvent e) {
+					VentanaAdmin VentanaAdmin = new VentanaAdmin();
+					VentanaAdmin.setVisible(true);
+					dispose();
+				}
+			}
 				
 		  public static void main(String[] args) {
 		        VentanaGestionStock vl = new VentanaGestionStock();      // creamos una ventana

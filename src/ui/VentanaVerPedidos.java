@@ -2,7 +2,10 @@ package ui;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
 
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -10,12 +13,12 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
-
 public class VentanaVerPedidos extends JFrame{
 
 	
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private final Action action = new botonAtras();
 
 	
 	public VentanaVerPedidos() {
@@ -48,11 +51,24 @@ public class VentanaVerPedidos extends JFrame{
 		JButton btnAtras = new JButton("ATRÁS");
 		btnAtras.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnAtras.setBounds(331, 218, 76, 21);
+		btnAtras.setAction(action);
 		contentPane.add(btnAtras);
 		
 		
 		
 		};
+		
+	private class botonAtras extends AbstractAction {
+			public botonAtras() {
+				putValue(NAME, "Atras");
+				putValue(SHORT_DESCRIPTION, "ir a la ventana anterior");
+			}
+			public void actionPerformed(ActionEvent e) {
+				VentanaInicio VentanaInicio = new VentanaInicio();
+				VentanaInicio.setVisible(true);
+				dispose();
+			}
+		}
 			
 	  public static void main(String[] args) {
 	        VentanaVerPedidos vl = new VentanaVerPedidos();      // creamos una ventana
