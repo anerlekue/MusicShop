@@ -4,13 +4,11 @@
 El proyecto que haremos se basará en una tienda de música online. El usuario podrá
 registrarse con una nueva cuenta o una previamente creada.
 
-Al iniciar sesión, el usuario dispondrá de una serie de productos a comprar, para ello hará uso de un carrito para poder
-llevar una cuenta de los productos que desea comprar o pedir. 
+Las cuentas de Administrador serán proporcionadas por el equipo de programación.
 
-En la función carrito se podrá modificar el pedido o ir directamente a la opción de pago. 
+Al iniciar sesión, el usuario dispondrá de una serie de productos a comprar, altavoces, discos o instrumentos. El usuario seleccionará los productos que desee adquirir y el pedido se guardará en la base datos con su id correspondiente. El cliente podrá eliminar los pedidos realizados cuando desee, ya que estos se recogen físicamente.
 
-Por otra parte habrá un usuario administrador, el cual tendrá otras funciones como el de modificar usuarios o gestionar el
-stock de los productos, ya sea, eliminando productos o añadiendo nuevos. 
+Por otra parte habrá un usuario administrador, el cual tendrá otras funciones como la de eliminar usuarios o gestionar el
+stock de los productos, ya sea, eliminando productos o añadiendo nuevos. También podrá eliminar manualmente los pedidos que ya se hayan entregado, solo necesitará el ID del pedido a eliminar.
 
-Los pedidos serán recogidos físicamente en la tienda. El programa tendrá un fichero donde se guardará
-un registro de las facturas de los pedidos.
+El programa tendrá un fichero donde se guardará un registro de las facturas de los pedidos, que será entregada junto a los productos.
