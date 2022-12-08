@@ -1,11 +1,11 @@
 package ui;
 
 import java.awt.Color;
+import javax.swing.Action;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
-import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,12 +16,13 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 
 
+
 public class VentanaGestionUsuarios extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private String prueba;
 	private final Action action = new botonAtras();
+	
 	
 
 	
@@ -68,11 +69,11 @@ public class VentanaGestionUsuarios extends JFrame{
 		btnAtras.setBounds(331, 218, 76, 21);
 		btnAtras.setAction(action);
 		contentPane.add(btnAtras);
-		
+			
 		
 		};
 		
-	 private class botonAtras extends AbstractAction {
+		private class botonAtras extends AbstractAction {
 			public botonAtras() {
 				putValue(NAME, "Atras");
 				putValue(SHORT_DESCRIPTION, "ir a la ventana anterior");
@@ -83,7 +84,8 @@ public class VentanaGestionUsuarios extends JFrame{
 				dispose();
 			}
 		}
-			
+		
+		 
 	  public static void main(String[] args) {
 	        VentanaGestionUsuarios vl = new VentanaGestionUsuarios();      // creamos una ventana
 	       vl.setVisible(true);             // hacemos visible la ventana creada
