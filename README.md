@@ -1,5 +1,5 @@
 # MusicShop
-<h1>Tienda de música donde podrás comprar desde álbumes de música hasta instrumentos</h1>
+<h1>Tienda de música donde podrás comprar discos,altavoces e incluso instrumentos</h1>
 <h2>Información acerca de nuestra tienda de musica</h2>
 El proyecto que haremos se basará en una tienda de música online. El usuario podrá
 registrarse con una nueva cuenta o una previamente creada.
