@@ -39,28 +39,28 @@ public class VentanaGestionUsuarios extends JFrame{
 		
 		JLabel lblNewLabel = new JLabel("MUSIC SHOP");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel.setBounds(157, 10, 122, 39);
+		lblNewLabel.setBounds(268, 11, 293, 40);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnEliminarcuenta = new JButton("ELIMINAR CUENTA");
 		btnEliminarcuenta.setFont(new Font("Tahoma", Font.BOLD, 10));
-		btnEliminarcuenta.setBounds(124, 218, 171, 21);
+		btnEliminarcuenta.setBounds(234, 333, 171, 21);
 		contentPane.add(btnEliminarcuenta);
 		
 		JTable tablausuarios = new JTable();
 		contentPane.add(tablausuarios );
 		tablausuarios .setFont(new Font("Arial", Font.PLAIN, 14));
 		tablausuarios .setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-		tablausuarios .setBounds(104, 60, 218, 111);
+		tablausuarios .setBounds(154, 81, 382, 159);
 		
 		JTextField textFieldnombre = new JTextField();
 		textFieldnombre.setFont(new Font("Tahoma", Font.BOLD, 10));
-		textFieldnombre.setBounds(142, 186, 143, 21);
+		textFieldnombre.setBounds(262, 281, 143, 21);
 		contentPane.add(textFieldnombre);
 		
 		JLabel lblNombreusuario = new JLabel("NOMBRE USUARIO");
 		lblNombreusuario.setFont(new Font("Tahoma", Font.BOLD, 9));
-		lblNombreusuario.setBounds(43, 186, 179, 21);
+		lblNombreusuario.setBounds(146, 281, 179, 21);
 		contentPane.add(lblNombreusuario);
 	
 		

@@ -24,7 +24,7 @@ public class VentanaVerPedidos extends JFrame{
 	public VentanaVerPedidos() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(200, 200, 850, 500);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(160, 82, 45));
 		contentPane.setForeground(new Color(160, 82, 45));
@@ -34,23 +34,23 @@ public class VentanaVerPedidos extends JFrame{
 		
 		JLabel lblNewLabel = new JLabel("MUSIC SHOP");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel.setBounds(157, 10, 122, 39);
+		lblNewLabel.setBounds(268, 11, 293, 40);
 		contentPane.add(lblNewLabel);
 		
 		JTable tablapedidos = new JTable();
 		contentPane.add(tablapedidos);
 		tablapedidos.setFont(new Font("Arial", Font.PLAIN, 14));
 		tablapedidos.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-		tablapedidos.setBounds(100, 60, 230, 120);
+		tablapedidos.setBounds(154, 81, 382, 159);
 		
 		JButton btnEliminarpedidos = new JButton("ELIMINAR PEDIDO");
 		btnEliminarpedidos.setFont(new Font("Tahoma", Font.BOLD, 10));
-		btnEliminarpedidos.setBounds(139, 203, 143, 21);
+		btnEliminarpedidos.setBounds(389, 315, 221, 59);
 		contentPane.add(btnEliminarpedidos);
 		
 		JButton btnAtras = new JButton("ATRÁS");
 		btnAtras.setFont(new Font("Tahoma", Font.BOLD, 10));
-		btnAtras.setBounds(331, 218, 76, 21);
+		btnAtras.setBounds(168, 315, 105, 59);
 		btnAtras.setAction(action);
 		contentPane.add(btnAtras);
 		

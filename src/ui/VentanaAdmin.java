@@ -34,31 +34,31 @@ public class VentanaAdmin extends JFrame{
 		
 		JLabel lblNewLabel = new JLabel("MUSIC SHOP");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel.setBounds(157, 10, 122, 39);
+		lblNewLabel.setBounds(268, 11, 293, 40);
 		contentPane.add(lblNewLabel);
 		
 		
 		JButton btnGestionusuarios = new JButton("GESTIÓN DE USUARIOS");
 		btnGestionusuarios.setFont(new Font("Tahoma", Font.BOLD, 10));
-		btnGestionusuarios.setBounds(128, 113, 165, 21);
+		btnGestionusuarios.setBounds(300, 177, 189, 40);
 		btnGestionusuarios.setAction(actionBotonGestionUsuarios);
 		contentPane.add(btnGestionusuarios);
 		
 		JButton btnGestionstock = new JButton("GESTIÓN DE STOCK");
 		btnGestionstock.setFont(new Font("Tahoma", Font.BOLD, 10));
-		btnGestionstock.setBounds(128, 71, 165, 21);
+		btnGestionstock.setBounds(300, 98, 189, 40);
 		btnGestionstock.setAction(actionBotonGestionStock);
 		contentPane.add(btnGestionstock);
 		
 		JButton btnPedidosclientes = new JButton("PEDIDOS CLIENTES");
 		btnPedidosclientes.setFont(new Font("Tahoma", Font.BOLD, 10));
-		btnPedidosclientes.setBounds(128, 157, 165, 21);
+		btnPedidosclientes.setBounds(300, 253, 189, 40);
 		btnPedidosclientes.setAction(actionBotonVerPedidos);
 		contentPane.add(btnPedidosclientes);
 		
 		JButton btnSalir = new JButton("SALIR");
 		btnSalir.setFont(new Font("Tahoma", Font.BOLD, 10));
-		btnSalir.setBounds(32, 218, 76, 21);
+		btnSalir.setBounds(667, 393, 133, 40);
 		contentPane.add(btnSalir);
 		
 		

@@ -40,22 +40,22 @@ import javax.swing.JList;
 				
 				JLabel lblNewLabel = new JLabel("DISCOS");
 				lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
-				lblNewLabel.setBounds(113, 29, 170, 39);
+				lblNewLabel.setBounds(268, 11, 293, 40);
 				contentPane.add(lblNewLabel);
 				
-				JButton btnEliminarpedidos = new JButton("REALIZAR PEDIDO");
-				btnEliminarpedidos.setFont(new Font("Tahoma", Font.BOLD, 10));
-				btnEliminarpedidos.setBounds(146, 218, 137, 21);
-				contentPane.add(btnEliminarpedidos);
+				JButton btnRealizarPedidos = new JButton("REALIZAR PEDIDO");
+				btnRealizarPedidos.setFont(new Font("Tahoma", Font.BOLD, 10));
+				btnRealizarPedidos.setBounds(389, 315, 221, 59);
+				contentPane.add(btnRealizarPedidos);
 				
 				JButton btnAtras = new JButton("ATRÁS");
 				btnAtras.setFont(new Font("Tahoma", Font.BOLD, 10));
-				btnAtras.setBounds(10, 218, 76, 21);
+				btnAtras.setBounds(168, 315, 105, 59);
 				btnAtras.setAction(action);
 				contentPane.add(btnAtras);
 				
 				JList list = new JList();
-				list.setBounds(52, 78, 231, 88);
+				list.setBounds(154, 81, 382, 159);
 				contentPane.add(list);
 				
 				

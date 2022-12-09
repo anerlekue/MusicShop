@@ -36,28 +36,28 @@ import javax.swing.border.MatteBorder;
 			
 			JLabel lblNewLabel = new JLabel("MUSIC SHOP");
 			lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
-			lblNewLabel.setBounds(157, 10, 122, 39);
+			lblNewLabel.setBounds(268, 11, 293, 40);
 			contentPane.add(lblNewLabel);
 			
 			JButton btnAñadirproductos = new JButton("AÑADIR PRODUCTOS");
 			 btnAñadirproductos.setFont(new Font("Tahoma", Font.BOLD, 10));
-			 btnAñadirproductos.setBounds(122, 218, 171, 21);
+			 btnAñadirproductos.setBounds(306, 370, 171, 21);
 			contentPane.add( btnAñadirproductos);
 			
 			JTable tablastock = new JTable();
 			contentPane.add(tablastock);
 			tablastock.setFont(new Font("Arial", Font.PLAIN, 14));
 			tablastock.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
-			tablastock.setBounds(100, 48, 219, 112);
+			tablastock.setBounds(154, 81, 382, 159);
 			
 			JTextField textFieldnombre = new JTextField();
 			textFieldnombre.setFont(new Font("Tahoma", Font.BOLD, 10));
-			textFieldnombre.setBounds(136, 171, 143, 21);
+			textFieldnombre.setBounds(304, 317, 173, 21);
 			contentPane.add(textFieldnombre);
 			
 			JLabel lblNombreusuario = new JLabel("Nº PRODUCTOS");
 			lblNombreusuario.setFont(new Font("Tahoma", Font.BOLD, 9));
-			lblNombreusuario.setBounds(49, 171, 179, 21);
+			lblNombreusuario.setBounds(195, 317, 179, 21);
 			contentPane.add(lblNombreusuario);
 		
 			

@@ -68,38 +68,38 @@ public class VentanaLogin extends JFrame {
 		
 		JLabel lblUsr = new JLabel("Usuario");
 		lblUsr.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblUsr.setBounds(74, 83, 78, 32);
+		lblUsr.setBounds(234, 81, 78, 32);
 		contentPane.add(lblUsr);
 		
 		JLabel lblPsw = new JLabel("Password");
 		lblPsw.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblPsw.setBounds(74, 144, 91, 32);
+		lblPsw.setBounds(221, 188, 91, 32);
 		contentPane.add(lblPsw);
 		
 		textUsr = new JTextField();
-		textUsr.setBounds(186, 92, 129, 19);
+		textUsr.setBounds(338, 74, 178, 32);
 		contentPane.add(textUsr);
 		textUsr.setColumns(10);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(186, 153, 129, 19);
+		passwordField.setBounds(338, 184, 178, 32);
 		contentPane.add(passwordField);
 		
 		JLabel lblNewLabel = new JLabel("MUSIC SHOP");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel.setBounds(157, 10, 122, 39);
+		lblNewLabel.setBounds(268, 11, 293, 40);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnRegistrarse = new JButton("REGISTRARSE");
 		btnRegistrarse.setFont(new Font("Tahoma", Font.BOLD, 10));
-		btnRegistrarse.setBounds(94, 213, 105, 21);
+		btnRegistrarse.setBounds(208, 281, 120, 40);
 		btnRegistrarse.setAction(action);
 		contentPane.add(btnRegistrarse);
 		
 		
 		JButton btnInicioSesion = new JButton("INICIO SESION");
 		btnInicioSesion.setFont(new Font("Tahoma", Font.BOLD, 10));
-		btnInicioSesion.setBounds(242, 213, 105, 21);
+		btnInicioSesion.setBounds(456, 281, 129, 40);
 		contentPane.add(btnInicioSesion);
 		
 		final JFrame ventana = this;
