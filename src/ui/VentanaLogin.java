@@ -6,6 +6,9 @@ import javax.swing.border.EmptyBorder;
 
 import config.BD;
 
+
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
@@ -33,6 +36,7 @@ public class VentanaLogin extends JFrame {
 	private JPasswordField txtClave;
 	private JTextField textUsr;
 	private JPasswordField passwordField;
+	private final Action action = new botonRegistrarse();
 
 	public static String getNick() {
 		return nick;
@@ -54,7 +58,7 @@ public class VentanaLogin extends JFrame {
 	public VentanaLogin() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(200, 200, 850, 500);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(160, 82, 45));
 		contentPane.setForeground(new Color(160, 82, 45));
@@ -89,7 +93,9 @@ public class VentanaLogin extends JFrame {
 		JButton btnRegistrarse = new JButton("REGISTRARSE");
 		btnRegistrarse.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnRegistrarse.setBounds(94, 213, 105, 21);
+		btnRegistrarse.setAction(action);
 		contentPane.add(btnRegistrarse);
+		
 		
 		JButton btnInicioSesion = new JButton("INICIO SESION");
 		btnInicioSesion.setFont(new Font("Tahoma", Font.BOLD, 10));
@@ -98,52 +104,9 @@ public class VentanaLogin extends JFrame {
 		
 		final JFrame ventana = this;
 		
-		JButton btnR = new JButton("Registrarse");
-		btnR.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ventana.setVisible(false);
-				VentanaRegistro v2 = new VentanaRegistro();
-				v2.setVisible(true);
-
-			}
-		});
+	
 		
 		
-		btnRegistrarse.addMouseListener(new MouseListener() {
-			
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				new VentanaRegistro();
-				dispose();
-				
-				 
-
-			}
-		});
 		
 
 		JButton btnAceptar = new JButton("Iniciar Sesion");
@@ -171,10 +134,23 @@ public class VentanaLogin extends JFrame {
 				}
 			}
 		});
+	}
 		
-	
+		private class botonRegistrarse extends AbstractAction {
+			public botonRegistrarse() {
+				putValue(NAME, "Registrarse");
+				putValue(SHORT_DESCRIPTION, "ir a la ventana Registro");
+			}
+			public void actionPerformed(ActionEvent e) {
+				VentanaRegistro VentanaRegistro = new VentanaRegistro();
+				VentanaRegistro.setVisible(true);
+				dispose();
+			}
+		}
+			
+		
 
-	}		
+			
 	  public static void main(String[] args) {
 	        VentanaLogin vl = new VentanaLogin();      // creamos una ventana
 	       vl.setVisible(true);             // hacemos visible la ventana creada

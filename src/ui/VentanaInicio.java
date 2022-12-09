@@ -28,7 +28,7 @@ public class VentanaInicio extends JFrame{
 		public VentanaInicio() {
 			setResizable(false);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			setBounds(100, 100, 450, 300);
+			setBounds(200, 200, 850, 500);
 			contentPane = new JPanel();
 			contentPane.setBackground(new Color(160, 82, 45));
 			contentPane.setForeground(new Color(160, 82, 45));
@@ -37,38 +37,38 @@ public class VentanaInicio extends JFrame{
 			contentPane.setLayout(null);
 			
 			JLabel lblNewLabel = new JLabel("MUSIC SHOP");
-			lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
-			lblNewLabel.setBounds(157, 10, 122, 39);
+			lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 40));
+			lblNewLabel.setBounds(268, 11, 293, 40);
 			contentPane.add(lblNewLabel);
 			
 			JButton btnComprarinstrumentos = new JButton("COMPRAR INSTRUMENTOS");
 			btnComprarinstrumentos.setFont(new Font("Tahoma", Font.BOLD, 10));
-			btnComprarinstrumentos.setBounds(136, 70, 171, 21);
+			btnComprarinstrumentos.setBounds(300, 98, 189, 40);
 			btnComprarinstrumentos.setAction(actionBotonInstrumentos);
 			contentPane.add(btnComprarinstrumentos);
 			
 			JButton btnCompraraltavoces = new JButton("COMPRAR ALTAVOCES");
 			btnCompraraltavoces.setFont(new Font("Tahoma", Font.BOLD, 10));
-			btnCompraraltavoces.setBounds(136, 102, 171, 21);
+			btnCompraraltavoces.setBounds(300, 177, 189, 40);
 			btnCompraraltavoces.setAction(actionBotonAltavoces);
 			contentPane.add(btnCompraraltavoces);
 			
 			JButton btnComprardiscos = new JButton("COMPRAR DISCOS");
 			btnComprardiscos.setFont(new Font("Tahoma", Font.BOLD, 10));
-			btnComprardiscos.setBounds(136, 134, 171, 21);
+			btnComprardiscos.setBounds(300, 253, 189, 40);
 			btnComprardiscos.setAction(actionBotonDiscos);
 			contentPane.add(btnComprardiscos);
 			
 			JButton btnVerpedidos = new JButton("VER PEDIDOS");
 			btnVerpedidos.setFont(new Font("Tahoma", Font.BOLD, 10));
-			btnVerpedidos.setBounds(136, 166, 171, 21);
+			btnVerpedidos.setBounds(300, 329, 189, 40);
 			btnVerpedidos.setAction(actionBotonVerPedidos);
 			contentPane.add(btnVerpedidos);
 		
 			
 			JButton btnSalir = new JButton("SALIR");
 			btnSalir.setFont(new Font("Tahoma", Font.BOLD, 10));
-			btnSalir.setBounds(32, 218, 76, 21);
+			btnSalir.setBounds(667, 393, 133, 40);
 			contentPane.add(btnSalir);
 			
 			
@@ -134,4 +134,5 @@ public class VentanaInicio extends JFrame{
 		        VentanaInicio vl = new VentanaInicio();      // creamos una ventana
 		       vl.setVisible(true);             // hacemos visible la ventana creada
 		    }
-	}
+		  
+} 

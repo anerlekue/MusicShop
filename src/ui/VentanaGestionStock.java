@@ -14,7 +14,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
-import javax.swing.Action;
+
 
 	public class VentanaGestionStock extends JFrame{
 		
@@ -26,7 +26,7 @@ import javax.swing.Action;
 		public VentanaGestionStock() {
 			setResizable(false);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			setBounds(100, 100, 450, 300);
+			setBounds(200, 200, 850, 500);
 			contentPane = new JPanel();
 			contentPane.setBackground(new Color(160, 82, 45));
 			contentPane.setForeground(new Color(160, 82, 45));
