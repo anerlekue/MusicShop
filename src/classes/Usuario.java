@@ -1,5 +1,9 @@
 package classes;
 
+import java.util.StringTokenizer;
+
+
+
 public class Usuario {
 	private int id = -1;
 	private String dni;
@@ -66,7 +70,19 @@ public class Usuario {
 		return "Usuario [id=" + id + ", dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + ", email="
 				+ email + ", contrasena=" + contrasena + "]";
 	}
-	
+
+	public static Usuario parseCSV(String linea) {
+		StringTokenizer tokenizer = new StringTokenizer(linea, ",");
+		Usuario usuario = new Usuario();
+		
+		usuario.setDni(tokenizer.nextToken());
+		usuario.setNombre(tokenizer.nextToken());
+		usuario.setApellido(tokenizer.nextToken());
+		usuario.setEmail(tokenizer.nextToken());
+		usuario.setContrasena(tokenizer.nextToken());
+		
+		return usuario;
+	}
 	
 	
 	
