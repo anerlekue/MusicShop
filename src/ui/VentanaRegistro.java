@@ -5,12 +5,19 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Main.Main;
+import classes.Usuario;
 import config.BD;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -21,13 +28,14 @@ import javax.swing.JPasswordField;
 import java.awt.Font;
 import java.awt.Color;
 
-public class VentanaRegistro extends JFrame {
+public class VentanaRegistro extends JFrame implements Serializable{
 
 	private JPanel contentPane;
 	private JTextField txtEmail;
 	private JTextField txtNombre;
 	private JPasswordField txtContrasenya;
 	private JTextField txtDNI;
+	String Filepath = "listaUsuarios.csv";
 
 	/**
 	 * Create the frame.
@@ -93,9 +101,15 @@ public class VentanaRegistro extends JFrame {
 					} catch (NumberFormatException e1) {
 
 					}
+					
 				}
 				
+
+				
+		
 			}
+
+				
 		});
 		panel_1.add(bntRegistrar);
 
@@ -183,6 +197,8 @@ public class VentanaRegistro extends JFrame {
 						gbc_txtContrasenya.gridx = 4;
 						gbc_txtContrasenya.gridy = 4;
 						panel_2.add(txtContrasenya, gbc_txtContrasenya);
+						
+					
 	}
 	  public static void main(String[] args) {
 	        VentanaRegistro vr = new VentanaRegistro();      // creamos una ventana
