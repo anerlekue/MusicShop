@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -24,8 +25,8 @@ public class VentanaAdmin extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 200, 850, 500);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(160, 82, 45));
-		contentPane.setForeground(new Color(160, 82, 45));
+		contentPane.setBackground(new Color(236, 98, 83));
+		contentPane.setForeground(new Color(236, 98, 83));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -33,26 +34,26 @@ public class VentanaAdmin extends JFrame{
 		
 		
 		JLabel lblNewLabel = new JLabel("MUSIC SHOP");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 40));
 		lblNewLabel.setBounds(268, 11, 293, 40);
 		contentPane.add(lblNewLabel);
 		
 		
 		JButton btnGestionusuarios = new JButton("GESTIÓN DE USUARIOS");
 		btnGestionusuarios.setFont(new Font("Tahoma", Font.BOLD, 10));
-		btnGestionusuarios.setBounds(300, 177, 189, 40);
+		btnGestionusuarios.setBounds(100, 209, 199, 29);
 		btnGestionusuarios.setAction(actionBotonGestionUsuarios);
 		contentPane.add(btnGestionusuarios);
 		
 		JButton btnGestionstock = new JButton("GESTIÓN DE STOCK");
 		btnGestionstock.setFont(new Font("Tahoma", Font.BOLD, 10));
-		btnGestionstock.setBounds(300, 98, 189, 40);
+		btnGestionstock.setBounds(100, 136, 199, 29);
 		btnGestionstock.setAction(actionBotonGestionStock);
 		contentPane.add(btnGestionstock);
 		
 		JButton btnPedidosclientes = new JButton("PEDIDOS CLIENTES");
 		btnPedidosclientes.setFont(new Font("Tahoma", Font.BOLD, 10));
-		btnPedidosclientes.setBounds(300, 253, 189, 40);
+		btnPedidosclientes.setBounds(100, 280, 199, 29);
 		btnPedidosclientes.setAction(actionBotonVerPedidos);
 		contentPane.add(btnPedidosclientes);
 		
@@ -60,6 +61,11 @@ public class VentanaAdmin extends JFrame{
 		btnSalir.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnSalir.setBounds(667, 393, 133, 40);
 		contentPane.add(btnSalir);
+		
+		JLabel labelImagen = new JLabel();
+		labelImagen.setIcon(new ImageIcon ("images/admin.gif"));
+		labelImagen.setBounds(402, 94, 351, 233);
+		contentPane.add(labelImagen);
 		
 		
 		
