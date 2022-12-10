@@ -60,46 +60,49 @@ public class VentanaLogin extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 200, 850, 500);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(160, 82, 45));
+		contentPane.setBackground(new Color(0, 0, 0));
 		contentPane.setForeground(new Color(160, 82, 45));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblUsr = new JLabel("Usuario");
+		lblUsr.setForeground(new Color(255, 255, 255));
 		lblUsr.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblUsr.setBounds(234, 81, 78, 32);
+		lblUsr.setBounds(286, 170, 78, 32);
 		contentPane.add(lblUsr);
 		
 		JLabel lblPsw = new JLabel("Password");
+		lblPsw.setForeground(new Color(255, 255, 255));
 		lblPsw.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblPsw.setBounds(221, 188, 91, 32);
+		lblPsw.setBounds(273, 235, 91, 32);
 		contentPane.add(lblPsw);
 		
 		textUsr = new JTextField();
-		textUsr.setBounds(338, 74, 178, 32);
+		textUsr.setBounds(387, 173, 178, 32);
 		contentPane.add(textUsr);
 		textUsr.setColumns(10);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(338, 184, 178, 32);
+		passwordField.setBounds(387, 238, 178, 32);
 		contentPane.add(passwordField);
 		
 		JLabel lblNewLabel = new JLabel("MUSIC SHOP");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel.setBounds(268, 11, 293, 40);
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 40));
+		lblNewLabel.setBounds(325, 59, 293, 40);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnRegistrarse = new JButton("REGISTRARSE");
 		btnRegistrarse.setFont(new Font("Tahoma", Font.BOLD, 10));
-		btnRegistrarse.setBounds(208, 281, 120, 40);
+		btnRegistrarse.setBounds(254, 372, 120, 32);
 		btnRegistrarse.setAction(action);
 		contentPane.add(btnRegistrarse);
 		
 		
 		JButton btnInicioSesion = new JButton("INICIO SESION");
 		btnInicioSesion.setFont(new Font("Tahoma", Font.BOLD, 10));
-		btnInicioSesion.setBounds(456, 281, 129, 40);
+		btnInicioSesion.setBounds(548, 370, 129, 36);
 		contentPane.add(btnInicioSesion);
 		
 		final JFrame ventana = this;
@@ -138,7 +141,7 @@ public class VentanaLogin extends JFrame {
 		
 		private class botonRegistrarse extends AbstractAction {
 			public botonRegistrarse() {
-				putValue(NAME, "Registrarse");
+				putValue(NAME, "REGISTRARSE");
 				putValue(SHORT_DESCRIPTION, "ir a la ventana Registro");
 			}
 			public void actionPerformed(ActionEvent e) {
