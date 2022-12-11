@@ -15,8 +15,8 @@ import classes.Usuario;
 
 public class BD {
  
-		protected static final String DRIVER_NAME = "org.sqlite.JDBC";
-		protected static final String DATABASE_FILE = "db/BD.db";
+		protected static final String DRIVER_NAME = "sqlite-jdbc";
+		protected static final String DATABASE_FILE = "/MusicShop/BD.db";
 		protected static final String CONNECTION_STRING = "jdbc:sqlite:" + DATABASE_FILE;
 		
 		public BD() {		

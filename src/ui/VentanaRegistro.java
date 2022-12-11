@@ -5,12 +5,19 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Main.Main;
+import classes.Usuario;
 import config.BD;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -18,14 +25,17 @@ import java.awt.Insets;
 import javax.swing.JTextField;
 
 import javax.swing.JPasswordField;
+import java.awt.Font;
+import java.awt.Color;
 
-public class VentanaRegistro extends JFrame {
+public class VentanaRegistro extends JFrame implements Serializable{
 
 	private JPanel contentPane;
 	private JTextField txtEmail;
 	private JTextField txtNombre;
 	private JPasswordField txtContrasenya;
 	private JTextField txtDNI;
+	String Filepath = "listaUsuarios.csv";
 
 	/**
 	 * Create the frame.
@@ -33,23 +43,29 @@ public class VentanaRegistro extends JFrame {
 	public VentanaRegistro() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 454, 299);
+		setBounds(200, 200, 850, 500);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(0, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 
 		JPanel panel = new JPanel();
+		panel.setBackground(new Color(0, 0, 0));
 		contentPane.add(panel, BorderLayout.NORTH);
 
 		JLabel lblRegistro = new JLabel("Registro");
+		lblRegistro.setForeground(new Color(255, 255, 255));
+		lblRegistro.setFont(new Font("Tahoma", Font.BOLD, 40));
 		panel.add(lblRegistro);
 
 		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(0, 0, 0));
 		contentPane.add(panel_1, BorderLayout.SOUTH);
 
 		final JFrame ventana = this;
 		JButton btnVolver = new JButton("Volver");
+		btnVolver.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ventana.setVisible(false);
@@ -60,6 +76,7 @@ public class VentanaRegistro extends JFrame {
 		panel_1.add(btnVolver);
 
 		JButton bntRegistrar = new JButton("Registrarse");
+		bntRegistrar.setFont(new Font("Tahoma", Font.BOLD, 10));
 		bntRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Anyade el user a la bd
@@ -84,13 +101,20 @@ public class VentanaRegistro extends JFrame {
 					} catch (NumberFormatException e1) {
 
 					}
+					
 				}
 				
+
+				
+		
 			}
+
+				
 		});
 		panel_1.add(bntRegistrar);
 
 		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(new Color(0, 0, 0));
 		contentPane.add(panel_2, BorderLayout.CENTER);
 		GridBagLayout gbl_panel_2 = new GridBagLayout();
 		gbl_panel_2.columnWidths = new int[] { 0, 0, 0, 0, 194, 0, 0 };
@@ -100,6 +124,8 @@ public class VentanaRegistro extends JFrame {
 		panel_2.setLayout(gbl_panel_2);
 								
 								JLabel lblDNI = new JLabel("DNI:");
+								lblDNI.setForeground(new Color(255, 255, 255));
+								lblDNI.setFont(new Font("Tahoma", Font.BOLD, 15));
 								GridBagConstraints gbc_lblDNI = new GridBagConstraints();
 								gbc_lblDNI.anchor = GridBagConstraints.WEST;
 								gbc_lblDNI.insets = new Insets(0, 0, 5, 5);
@@ -117,6 +143,8 @@ public class VentanaRegistro extends JFrame {
 								txtDNI.setColumns(10);
 						
 								JLabel lblNombre = new JLabel("Nombre:");
+								lblNombre.setForeground(new Color(255, 255, 255));
+								lblNombre.setFont(new Font("Tahoma", Font.BOLD, 15));
 								GridBagConstraints gbc_txtNombre = new GridBagConstraints();
 								gbc_txtNombre.anchor = GridBagConstraints.WEST;
 								gbc_txtNombre.insets = new Insets(0, 0, 5, 5);
@@ -134,6 +162,8 @@ public class VentanaRegistro extends JFrame {
 								txtNombre.setColumns(10);
 				
 						JLabel lblEmail = new JLabel("Email:");
+						lblEmail.setForeground(new Color(255, 255, 255));
+						lblEmail.setFont(new Font("Tahoma", Font.BOLD, 15));
 						GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
 						gbc_lblNewLabel_1.anchor = GridBagConstraints.WEST;
 						gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 5);
@@ -151,6 +181,8 @@ public class VentanaRegistro extends JFrame {
 						txtEmail.setColumns(10);
 		
 				JLabel lblContrasenya = new JLabel("Contrasena:");
+				lblContrasenya.setForeground(new Color(255, 255, 255));
+				lblContrasenya.setFont(new Font("Tahoma", Font.BOLD, 15));
 				GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
 				gbc_lblNewLabel_2.anchor = GridBagConstraints.WEST;
 				gbc_lblNewLabel_2.insets = new Insets(0, 0, 5, 5);
@@ -165,6 +197,8 @@ public class VentanaRegistro extends JFrame {
 						gbc_txtContrasenya.gridx = 4;
 						gbc_txtContrasenya.gridy = 4;
 						panel_2.add(txtContrasenya, gbc_txtContrasenya);
+						
+					
 	}
 	  public static void main(String[] args) {
 	        VentanaRegistro vr = new VentanaRegistro();      // creamos una ventana
