@@ -9,6 +9,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 import classes.Usuario;
 
@@ -16,7 +20,7 @@ import classes.Usuario;
 public class BD {
  
 		protected static final String DRIVER_NAME = "sqlite-jdbc";
-		protected static final String DATABASE_FILE = "/MusicShop/BD.db";
+		protected static final String DATABASE_FILE = "db/BD.db";
 		protected static final String CONNECTION_STRING = "jdbc:sqlite:" + DATABASE_FILE;
 		
 		public BD() {		
@@ -167,5 +171,30 @@ public class BD {
 				e.printStackTrace();
 			}
 		}
+		
+		public static Logger logger = null;
+	
+		public static void setLogger( Logger logger ) {
+			BD.logger = logger;
+		}
+		// Metodo local para loggear
+		private static void log( Level level, String msg, Throwable excepcion ) {
+			if (logger==null) {  // Logger por defecto local:
+				logger = Logger.getLogger( BD.class.getName() );  // Nombre del logger 
+				logger.setLevel( Level.ALL );  // Loguea todos los niveles
+				try {
+					
+					logger.addHandler( new FileHandler( "BD.log.xml", true ) );  // Y saca el log a fichero xml
+				} catch (Exception e) {
+					logger.log( Level.SEVERE, "No se pudo crear fichero de log", e );
+				}
+			}
+			if (excepcion==null)
+				logger.log( level, msg );
+			else
+				logger.log( level, msg, excepcion );
+		}
+		
+
 }
 
