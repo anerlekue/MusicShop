@@ -84,7 +84,7 @@ public class BD {
 		// Se abre la conexión y se obtiene el Statement
 		try (Connection con = DriverManager.getConnection(CONNECTION_STRING); Statement stmt = con.createStatement()) {
 			// Se ejecuta la sentencia de borrado de datos
-			String sql = "UPDATE USUARIO SET PASSWORD = '%s' WHERE ID = %d;";
+			String sql = "UPDATE USUARIO SET contrasenya = '%s' WHERE ID = %d;";
 
 			int result = stmt.executeUpdate(String.format(sql, newPassword, usuario.getId()));
 

@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.event.ActionListener;
 public class VentanaAdmin extends JFrame{
 
 	private static final long serialVersionUID = 1L;
@@ -21,6 +22,7 @@ public class VentanaAdmin extends JFrame{
 	private final Action actionBotonVerPedidos = new botonVerPedidos();
 
 	public VentanaAdmin() {
+		final JFrame ventana = this;
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 200, 850, 500);
@@ -58,6 +60,13 @@ public class VentanaAdmin extends JFrame{
 		contentPane.add(btnPedidosclientes);
 		
 		JButton btnSalir = new JButton("SALIR");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ventana.setVisible(false);
+				VentanaLogin vl = new VentanaLogin();
+				vl.setVisible(true);
+			}
+		});
 		btnSalir.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnSalir.setBounds(667, 393, 133, 40);
 		contentPane.add(btnSalir);
@@ -114,7 +123,7 @@ public class VentanaAdmin extends JFrame{
 		}
 			
 	  public static void main(String[] args) {
-	        VentanaAdmin vl = new VentanaAdmin();      // creamos una ventana
+	       VentanaAdmin vl = new VentanaAdmin();      // creamos una ventana
 	       vl.setVisible(true);             // hacemos visible la ventana creada
 	    }
 }

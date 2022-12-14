@@ -4,6 +4,7 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 
 import java.awt.Color;
@@ -12,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class VentanaInicio extends JFrame{
@@ -27,6 +29,7 @@ public class VentanaInicio extends JFrame{
 
 		
 		public VentanaInicio() {
+			final JFrame ventana = this;
 			setResizable(false);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setBounds(200, 200, 850, 500);
@@ -69,6 +72,13 @@ public class VentanaInicio extends JFrame{
 		
 			
 			JButton btnSalir = new JButton("SALIR");
+			btnSalir.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					ventana.setVisible(false);
+					VentanaLogin vl = new VentanaLogin();
+					vl.setVisible(true);
+				}
+			});
 			btnSalir.setFont(new Font("Tahoma", Font.BOLD, 10));
 			btnSalir.setBounds(542, 404, 166, 30);
 			contentPane.add(btnSalir);
