@@ -1,6 +1,10 @@
 package config;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -11,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import config.BD;
+import classes.Producto;
 import classes.Usuario;
 
 public class BD {
@@ -188,5 +193,37 @@ public class BD {
 			logger.log( level, msg, excepcion );
 	}
 	
+	public void cargaProductos(String filepath) throws SQLException, IOException {
+        BufferedReader csvReader = new BufferedReader(new FileReader(filepath));
+        Connection con = DriverManager.getConnection(CONNECTION_STRING);
+        try (PreparedStatement stmt = con.prepareStatement("INSERT INTO PRODUCTOS (Nombre, Tipo, Precio, Id) VALUES (?, ?, ?, ?)")) {
+            String row;
+            while ((row = csvReader.readLine()) != null) {
+                String[] data = row.split(",");
+                stmt.setString(1, data[0]);
+                stmt.setString(2, data[1]);
+                stmt.setInt(3, Integer.parseInt(data[2]));
+                stmt.setString(4, data[3]);          
+                stmt.executeUpdate();
+            }
+            csvReader.close();
+        }
+	}
 	
+	public ArrayList<Producto> getProducto() throws SQLException, IOException{
+		Connection con = DriverManager.getConnection(CONNECTION_STRING);
+		try (Statement statement = con.createStatement()) {
+			ArrayList<Producto> ret = new ArrayList<>();
+			String sent = "select * from PRODUCTOS;";
+			ResultSet rs = statement.executeQuery( sent );
+			while( rs.next() ) {
+				String Nombre = rs.getString("Nombre");
+				String Tipo = rs.getString("Tipo");
+				Integer Precio = rs.getInt("Precio");
+				String Id = rs.getString("Id");
+				ret.add( new Producto (Nombre, Tipo, Precio, Id) );
+			}
+			return ret;
+		}
+	}
 }

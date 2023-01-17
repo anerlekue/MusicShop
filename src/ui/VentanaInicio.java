@@ -21,12 +21,6 @@ public class VentanaInicio extends JFrame{
 		
 		private static final long serialVersionUID = 1L;
 		private JPanel contentPane;
-		private final Action actionBotonInstrumentos = new botonInstrumentos();
-		private final Action actionBotonAltavoces = new botonAltavoces();
-		private final Action actionBotonDiscos = new botonDiscos();
-		private final Action actionBotonVerPedidos = new botonVerPedidos();
-	
-
 		
 		public VentanaInicio() {
 			final JFrame ventana = this;
@@ -46,30 +40,17 @@ public class VentanaInicio extends JFrame{
 			lblNewLabel.setBounds(259, 11, 293, 40);
 			contentPane.add(lblNewLabel);
 			
-			JButton btnComprarinstrumentos = new JButton("COMPRAR INSTRUMENTOS");
-			btnComprarinstrumentos.setFont(new Font("Tahoma", Font.BOLD, 10));
-			btnComprarinstrumentos.setBounds(110, 113, 199, 30);
-			btnComprarinstrumentos.setAction(actionBotonInstrumentos);
-			contentPane.add(btnComprarinstrumentos);
-			
-			JButton btnCompraraltavoces = new JButton("COMPRAR ALTAVOCES");
-			btnCompraraltavoces.setFont(new Font("Tahoma", Font.BOLD, 10));
-			btnCompraraltavoces.setBounds(110, 189, 199, 30);
-			btnCompraraltavoces.setAction(actionBotonAltavoces);
-			contentPane.add(btnCompraraltavoces);
-			
-			JButton btnComprardiscos = new JButton("COMPRAR DISCOS");
-			btnComprardiscos.setFont(new Font("Tahoma", Font.BOLD, 10));
-			btnComprardiscos.setBounds(110, 265, 199, 30);
-			btnComprardiscos.setAction(actionBotonDiscos);
-			contentPane.add(btnComprardiscos);
-			
-			JButton btnVerpedidos = new JButton("VER PEDIDOS");
-			btnVerpedidos.setFont(new Font("Tahoma", Font.BOLD, 10));
-			btnVerpedidos.setBounds(110, 343, 199, 30);
-			btnVerpedidos.setAction(actionBotonVerPedidos);
-			contentPane.add(btnVerpedidos);
-		
+			JButton btnComprarProductos = new JButton("COMPRAR PRODUCTOS");
+			btnComprarProductos.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
+
+			JButton btnVerpedidos = new JButton("VER CARRITO");
+			btnVerpedidos.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
 			
 			JButton btnSalir = new JButton("SALIR");
 			btnSalir.addActionListener(new ActionListener() {
@@ -80,7 +61,7 @@ public class VentanaInicio extends JFrame{
 				}
 			});
 			btnSalir.setFont(new Font("Tahoma", Font.BOLD, 10));
-			btnSalir.setBounds(542, 404, 166, 30);
+			btnSalir.setBounds(542, 406, 166, 30);
 			contentPane.add(btnSalir);
 			
 			JLabel labelGif = new JLabel();
@@ -88,67 +69,30 @@ public class VentanaInicio extends JFrame{
 			labelGif.setBounds(402, 113, 364, 231);
 			contentPane.add(labelGif);
 			
+			JButton btnNewButton = new JButton("Ver Productos");
+			btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
+			btnNewButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+					VentanaProductos vp = new VentanaProductos();
+					vp.setVisible(true);
+					
+				}
+			});
+			btnNewButton.setBounds(125, 113, 209, 63);
+			contentPane.add(btnNewButton);
+			
+			JButton btnNewButton_1 = new JButton("Ver Carrito"+ "");
+			btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
+			btnNewButton_1.setForeground(new Color(0, 0, 0));
+			btnNewButton_1.setBounds(125, 231, 209, 63);
+			contentPane.add(btnNewButton_1);
+			
 			
 			};
-			
-			private class botonInstrumentos extends AbstractAction {
-				public botonInstrumentos() {
-					putValue(NAME, "COMPRAR INSTRUMENTOS");
-					putValue(SHORT_DESCRIPTION, "Abrir la ventana para realizar pedido de instrumentos");
-				}
-
-				public void actionPerformed(ActionEvent e) {
-					VentanaInstrumentos ventanaInstrumentos = new VentanaInstrumentos();
-					ventanaInstrumentos.setVisible(true);
-					dispose();
-
-				}
-			}
-			
-			private class botonDiscos extends AbstractAction {
-				public botonDiscos() {
-					putValue(NAME, "COMPRAR DISCOS");
-					putValue(SHORT_DESCRIPTION, "Abrir la ventana para realizar pedido de discos");
-				}
-
-				public void actionPerformed(ActionEvent e) {
-					VentanaDiscos ventanaDiscos = new VentanaDiscos();
-					ventanaDiscos.setVisible(true);
-					dispose();
-
-				}
-			}
-			
-			private class botonAltavoces extends AbstractAction {
-				public botonAltavoces() {
-					putValue(NAME, "COMPRAR ALTAVOCES");
-					putValue(SHORT_DESCRIPTION, "Abrir la ventana para realizar pedido de altavoces");
-				}
-
-				public void actionPerformed(ActionEvent e) {
-					VentanaAltavoces ventanaAltavoces = new VentanaAltavoces();
-					ventanaAltavoces.setVisible(true);
-					dispose();
-
-				}
-			}
-			
-			private class botonVerPedidos extends AbstractAction {
-				public botonVerPedidos() {
-					putValue(NAME, "VER PEDIDOS");
-					putValue(SHORT_DESCRIPTION, "Abrir la ventana para ver los pedidos realizados");
-				}
-
-				public void actionPerformed(ActionEvent e) {
-					VentanaVerPedidos ventanaVerPedidos = new VentanaVerPedidos();
-					ventanaVerPedidos.setVisible(true);
-					dispose();
-
-				}
-			}
 				
 		  public static void main(String[] args) {
 		        VentanaInicio vl = new VentanaInicio();      // creamos una ventana
-		       vl.setVisible(true);             // hacemos visible la ventana creada
+		       vl.setVisible(true);             			// hacemos visible la ventana creada
 		    }
 } 
