@@ -23,7 +23,13 @@ public class BD {
 	protected static final String DRIVER_NAME = "org.sqlite.JDBC";
 	protected static final String DATABASE_FILE = "BD.db";
 	protected static final String CONNECTION_STRING = "jdbc:sqlite:" + DATABASE_FILE;
-
+	private BD db;
+	
+	public BD() {
+		this.db= db;
+	}
+	
+	
 	public void concon() {
 		try {
 			Class.forName(DRIVER_NAME);
@@ -193,8 +199,8 @@ public class BD {
 			logger.log( level, msg, excepcion );
 	}
 	
-	public void cargaProductos(String filepath) throws SQLException, IOException {
-        BufferedReader csvReader = new BufferedReader(new FileReader(filepath));
+	public void cargaProductos() throws SQLException, IOException {
+        BufferedReader csvReader = new BufferedReader(new FileReader("productos.csv"));
         Connection con = DriverManager.getConnection(CONNECTION_STRING);
         try (PreparedStatement stmt = con.prepareStatement("INSERT INTO PRODUCTOS (Nombre, Tipo, Precio, Id) VALUES (?, ?, ?, ?)")) {
             String row;
@@ -202,18 +208,21 @@ public class BD {
                 String[] data = row.split(",");
                 stmt.setString(1, data[0]);
                 stmt.setString(2, data[1]);
-                stmt.setInt(3, Integer.parseInt(data[2]));
+                stmt.setInt(3, Integer.parseInt(data[2].trim()));
                 stmt.setString(4, data[3]);          
                 stmt.executeUpdate();
             }
             csvReader.close();
-        }
+        }  catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public ArrayList<Producto> getProducto() throws SQLException, IOException{
 		Connection con = DriverManager.getConnection(CONNECTION_STRING);
-		try (Statement statement = con.createStatement()) {
-			ArrayList<Producto> ret = new ArrayList<>();
+		ArrayList<Producto> ret = new ArrayList<>();
+		try (Statement statement = con.createStatement()) {	
 			String sent = "select * from PRODUCTOS;";
 			ResultSet rs = statement.executeQuery( sent );
 			while( rs.next() ) {
@@ -223,7 +232,12 @@ public class BD {
 				String Id = rs.getString("Id");
 				ret.add( new Producto (Nombre, Tipo, Precio, Id) );
 			}
-			return ret;
+			
 		}
+		 catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return ret;
 	}
 }

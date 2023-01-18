@@ -38,12 +38,17 @@ import javax.swing.JList;
 			private BD dbManager;
 			
 			
+
 			
-			
-			public VentanaProductos() {
+			public VentanaProductos() throws SQLException, IOException {
 				setResizable(false);
 				getContentPane().add(new JScrollPane(ProductosJTable), BorderLayout.CENTER);
 				dbManager = new BD();
+				
+				dbManager.cargaProductos();
+				dbManager.getProducto();
+				
+				
 			
 				setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				setBounds(200, 200, 850, 500);
@@ -151,7 +156,7 @@ import javax.swing.JList;
 					}
 				}
 					
-			  public static void main(String[] args) {
+			  public static void main(String[] args) throws SQLException, IOException {
 				  VentanaProductos vI = new VentanaProductos();      // creamos una ventana
 			       vI.setVisible(true);            		 // hacemos visible la ventana creada
 			    }

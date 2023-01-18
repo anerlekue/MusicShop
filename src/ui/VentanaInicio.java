@@ -14,6 +14,8 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.sql.SQLException;
 
 
 public class VentanaInicio extends JFrame{
@@ -22,7 +24,7 @@ public class VentanaInicio extends JFrame{
 		private static final long serialVersionUID = 1L;
 		private JPanel contentPane;
 		
-		public VentanaInicio() {
+		public VentanaInicio()  {
 			final JFrame ventana = this;
 			setResizable(false);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -74,7 +76,16 @@ public class VentanaInicio extends JFrame{
 			btnNewButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					
-					VentanaProductos vp = new VentanaProductos();
+					VentanaProductos vp = null;
+					try {
+						vp = new VentanaProductos();
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					vp.setVisible(true);
 					
 				}
