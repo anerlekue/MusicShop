@@ -1,30 +1,30 @@
 package ui;
 
-	import javax.swing.AbstractAction;
-import javax.swing.Action;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-
-import java.awt.BorderLayout;
+	import java.awt.BorderLayout;
 import java.awt.Color;
-	import javax.swing.JLabel;
-	import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.MatteBorder;
-
-import classes.Producto;
-import config.BD;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JList;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.border.EmptyBorder;
+
+import classes.Producto;
+import config.BD;
 
 
 	public class VentanaProductos extends JFrame{
@@ -37,19 +37,17 @@ import javax.swing.JList;
 			private ArrayList<Producto> productos;
 			private BD dbManager;
 			
-			
-
-			
 			public VentanaProductos() throws SQLException, IOException {
 				setResizable(false);
 				getContentPane().add(new JScrollPane(ProductosJTable), BorderLayout.CENTER);
 				dbManager = new BD();
-				
-				dbManager.cargaProductos();
-				dbManager.getProducto();
-				
-				
-			
+
+				productos = dbManager.getProducto();
+
+				if(productos.size() == 0) {
+					dbManager.cargaProductos();
+				}
+
 				setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				setBounds(200, 200, 850, 500);
 				contentPane = new JPanel();
@@ -58,20 +56,15 @@ import javax.swing.JList;
 				contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 				setContentPane(contentPane);
 				contentPane.setLayout(null);
-				
-				
+					
 				ProductosJTable = new JTable();
 				
 				ProductosJTable.setBounds(88, 62, 595, 223);	
 				try {
 					dbManager.concon();
-					productos = dbManager.getProducto();
-				} catch (SQLException | IOException e) {
+				} catch (Exception e) {
 					
 				}
-				
-				
-				
 				ProductosJTable.setModel(new ProductosTableModel(productos));
 				
 				ProductosJTable.getColumnModel().getColumn(0).setMinWidth(100);
@@ -92,69 +85,67 @@ import javax.swing.JList;
 				btnRealizarPedidos.setBounds(311, 404, 178, 30);
 				contentPane.add(btnRealizarPedidos);
 				
-				JButton btnAtras = new JButton("ATRÁS");
+				JButton btnAtras = new JButton("ATRAS");
 				btnAtras.setFont(new Font("Tahoma", Font.BOLD, 10));
 				btnAtras.setBounds(700, 412, 89, 22);
 				btnAtras.setAction(action);
 				contentPane.add(btnAtras);
-				
-
-				JLabel labelModelo = new JLabel("Modelo:");
-				labelModelo.setForeground(new Color(255, 255, 255));
-				labelModelo.setBounds(190, 358, 46, 18);
-				contentPane.add(labelModelo);
-				
 
 				JLabel labelTipo = new JLabel("Tipo:");
 				labelTipo.setForeground(new Color(255, 255, 255));
 				labelTipo.setBounds(203, 300, 46, 18);
 				contentPane.add(labelTipo);
 				
-
-				JLabel labelMarca = new JLabel("Marca:");
-				labelMarca.setForeground(new Color(255, 255, 255));
-				labelMarca.setBounds(402, 300, 46, 18);
-				contentPane.add(labelMarca);
-				
-
-				JLabel labelColor = new JLabel("Color:");
-				labelColor.setForeground(new Color(255, 255, 255));
-				labelColor.setBounds(402, 358, 46, 18);
-				contentPane.add(labelColor);
-				
-				JComboBox comboBoxModelo = new JComboBox();
-				comboBoxModelo.setBounds(239, 296, 94, 22);
-				contentPane.add(comboBoxModelo);
-				
-				JComboBox comboBoxTipo = new JComboBox();
-				comboBoxTipo.setBounds(239, 354, 94, 22);
+				JComboBox<String> comboBoxTipo = new JComboBox<String>();
+				comboBoxTipo.setBounds(245, 298, 94, 22);
 				contentPane.add(comboBoxTipo);
+				
 
-				
-				JComboBox comboBoxMarca = new JComboBox();
-				comboBoxMarca.setBounds(441, 296, 94, 22);
-				contentPane.add(comboBoxMarca);
-				
-				JComboBox comboBoxColor = new JComboBox();
-				comboBoxColor.setBounds(441, 354, 94, 22);
-				contentPane.add(comboBoxColor);
+				Set<String> tipos = new HashSet<String>();
+				for (Producto p : productos) {
+					tipos.add(p.getTipo());
+				}
 
+				for (String tipo : tipos) {
+					comboBoxTipo.addItem(tipo);
+				}
+
+				JButton btnBuscarFiltro = new JButton("Buscar");
+				btnBuscarFiltro.setBounds(389, 299, 85, 21);
+				contentPane.add(btnBuscarFiltro);
+				
+				ArrayList<Producto> productosTipo = new ArrayList<Producto>();
+			
+				
+				  for(Producto p : productos) {
+	                    if(p.getTipo().equals(comboBoxTipo.getSelectedItem().toString())) {
+	                        productosTipo.add(p);
+	                    }
+	                }
+					
 				
 				
-				
-				};
+				btnBuscarFiltro.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						ProductosJTable.setModel(new ProductosTableModel(productosTipo));
+						
+					}
+				});
+			};
 				
 			private class botonAtras extends AbstractAction {
-					public botonAtras() {
-						putValue(NAME, "Atras");
-						putValue(SHORT_DESCRIPTION, "ir a la ventana anterior");
-					}
-					public void actionPerformed(ActionEvent e) {
-						VentanaInicio VentanaInicio = new VentanaInicio();
-						VentanaInicio.setVisible(true);
-						dispose();
-					}
+				public botonAtras() {
+					putValue(NAME, "Atras");
+					putValue(SHORT_DESCRIPTION, "ir a la ventana anterior");
 				}
+				public void actionPerformed(ActionEvent e) {
+					VentanaInicio VentanaInicio = new VentanaInicio();
+					VentanaInicio.setVisible(true);
+					dispose();
+				}
+			}
 					
 			  public static void main(String[] args) throws SQLException, IOException {
 				  VentanaProductos vI = new VentanaProductos();      // creamos una ventana
