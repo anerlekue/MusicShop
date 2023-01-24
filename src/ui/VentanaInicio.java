@@ -11,11 +11,15 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import classes.Producto;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 public class VentanaInicio extends JFrame{
@@ -23,6 +27,7 @@ public class VentanaInicio extends JFrame{
 		
 		private static final long serialVersionUID = 1L;
 		private JPanel contentPane;
+		
 		
 		public VentanaInicio()  {
 			final JFrame ventana = this;
@@ -49,10 +54,7 @@ public class VentanaInicio extends JFrame{
 			});
 
 			JButton btnVerpedidos = new JButton("VER CARRITO");
-			btnVerpedidos.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-				}
-			});
+			
 			
 			JButton btnSalir = new JButton("SALIR");
 			btnSalir.addActionListener(new ActionListener() {
@@ -98,6 +100,16 @@ public class VentanaInicio extends JFrame{
 			btnNewButton_1.setForeground(new Color(0, 0, 0));
 			btnNewButton_1.setBounds(125, 231, 209, 63);
 			contentPane.add(btnNewButton_1);
+			
+			btnNewButton_1.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					System.out.println("Imprime puta[]");
+					ArrayList<Producto> carrito = VentanaProductos.pedido;
+					for (Producto producto : carrito) {
+						System.out.println(producto);
+					}
+				}
+			});
 			
 			
 			};

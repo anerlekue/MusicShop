@@ -29,15 +29,17 @@ import config.BD;
 
 	public class VentanaProductos extends JFrame{
 
-			
+			public static ArrayList<Producto> pedido;
 			private static final long serialVersionUID = 1L;
 			private JPanel contentPane;
 			private final Action action = new botonAtras();
 			private JTable ProductosJTable;
 			private ArrayList<Producto> productos;
 			private BD dbManager;
+		
 			
 			public VentanaProductos() throws SQLException, IOException {
+				pedido = new ArrayList<Producto>();
 				setResizable(false);
 				getContentPane().add(new JScrollPane(ProductosJTable), BorderLayout.CENTER);
 				dbManager = new BD();
@@ -99,6 +101,7 @@ import config.BD;
 				JComboBox<String> comboBoxTipo = new JComboBox<String>();
 				comboBoxTipo.setBounds(245, 298, 94, 22);
 				contentPane.add(comboBoxTipo);
+				comboBoxTipo.addItem("Todos");
 				
 
 				Set<String> tipos = new HashSet<String>();
@@ -115,20 +118,35 @@ import config.BD;
 				contentPane.add(btnBuscarFiltro);
 				
 				ArrayList<Producto> productosTipo = new ArrayList<Producto>();
-			
 				
-				  for(Producto p : productos) {
-	                    if(p.getTipo().equals(comboBoxTipo.getSelectedItem().toString())) {
-	                        productosTipo.add(p);
-	                    }
-	                }
+				
+				btnRealizarPedidos.addActionListener(new ActionListener() {
 					
-				
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						System.out.println("Anyadimos producto");
+						pedido.add(productos.get(ProductosJTable.getSelectedRow()));
+					}
+				});
 				
 				btnBuscarFiltro.addActionListener(new ActionListener() {
 					
 					@Override
 					public void actionPerformed(ActionEvent e) {
+						productosTipo.clear();
+						
+						if(comboBoxTipo.getSelectedItem().toString().equals("Todos")) {
+							for(Producto p : productos) {
+			                    productosTipo.add(p);
+			                }
+						}else {
+							for(Producto p : productos) {
+			                    if(p.getTipo().equals(comboBoxTipo.getSelectedItem().toString())) {
+			                        productosTipo.add(p);
+			                    }
+							}
+						}
+						
 						ProductosJTable.setModel(new ProductosTableModel(productosTipo));
 						
 					}
@@ -146,7 +164,9 @@ import config.BD;
 					dispose();
 				}
 			}
-					
+			
+			
+			
 			  public static void main(String[] args) throws SQLException, IOException {
 				  VentanaProductos vI = new VentanaProductos();      // creamos una ventana
 			       vI.setVisible(true);            		 // hacemos visible la ventana creada
