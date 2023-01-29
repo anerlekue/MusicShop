@@ -103,7 +103,6 @@ public class VentanaInicio extends JFrame{
 			
 			btnNewButton_1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					System.out.println("Imprime puta[]");
 					ArrayList<Producto> carrito = VentanaProductos.pedido;
 					for (Producto producto : carrito) {
 						System.out.println(producto);

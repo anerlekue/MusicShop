@@ -119,8 +119,25 @@ public class BD {
 			ex.printStackTrace();
 		}
 	}
+	
+	public int insertarProducto(Producto p) {
+		try (Connection con = DriverManager.getConnection(CONNECTION_STRING); Statement stmt = con.createStatement()){
+			String sql = "INSERT INTO PRODUCTOS (Nombre, Tipo, Precio, Id) VALUES ('%s', '%s', '%d', '%s');";
+			if (1 == stmt.executeUpdate(String.format(sql, p.getNombre(), p.getTipo(), p.getPrecio(), p.getId()))) {
+				System.out.println(String.format(" - Producto insertado: %s", p.toString()));
+				return 1;
+			}
+		    else {
+		    	System.out.println(String.format(" - No se ha insertado el Producto: %s", p.toString()));
+		    }
+		} catch (Exception e) {
+			System.err.println(String.format("* Error al insertar datos de la BBDD: %s", e.getMessage()));
+			e.printStackTrace();
+		}
+		return 0;
+	}
 
-	public void insertarDatos(Usuario... usuarios) {
+	public int insertarDatos(Usuario... usuarios) {
 		// Se abre la conexión y se obtiene el Statement
 		try (Connection con = DriverManager.getConnection(CONNECTION_STRING); Statement stmt = con.createStatement()) {
 			// Se define la plantilla de la sentencia SQL
@@ -132,6 +149,7 @@ public class BD {
 				if (1 == stmt.executeUpdate(
 						String.format(sql, u.getDni(), u.getNombre(), u.getEmail(), u.getContrasena()))) {
 					System.out.println(String.format(" - Usuario insertado: %s", u.toString()));
+					return 1;
 				} else {
 					System.out.println(String.format(" - No se ha insertado el Usuario: %s", u.toString()));
 				}
@@ -140,6 +158,7 @@ public class BD {
 			System.err.println(String.format("* Error al insertar datos de la BBDD: %s", ex.getMessage()));
 			ex.printStackTrace();
 		}
+		return 0;
 	}
 
 	public static int buscarUsuario(String Nombre, String contrasenya) {
