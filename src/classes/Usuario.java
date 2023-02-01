@@ -5,12 +5,25 @@ import java.util.StringTokenizer;
 
 
 public class Usuario {
+
+
 	private int id = -1;
 	private String dni;
 	private String nombre;
 	private String apellido;
 	private String email;
 	private String contrasena;
+	
+	
+	public Usuario(int id, String dni, String nombre, String apellido, String email, String contrasena) {
+		super();
+		this.id = id;
+		this.dni = dni;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.email = email;
+		this.contrasena = contrasena;
+	}
 	
 	public Usuario() {
 		super();

@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import classes.Producto;
-
+import Main.Main;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -62,6 +62,7 @@ public class VentanaInicio extends JFrame{
 					ventana.setVisible(false);
 					VentanaLogin vl = new VentanaLogin();
 					vl.setVisible(true);
+					Main.pedido.clear();
 				}
 			});
 			btnSalir.setFont(new Font("Tahoma", Font.BOLD, 10));
@@ -103,15 +104,15 @@ public class VentanaInicio extends JFrame{
 			
 			btnNewButton_1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					ArrayList<Producto> carrito = VentanaProductos.pedido;
-					for (Producto producto : carrito) {
-						System.out.println(producto);
-					}
+					VentanaCarrito vvp = null;
+					vvp = new VentanaCarrito();
+					vvp.setVisible(true);
+					
+				 }
+				});					
+			   
 				}
-			});
 			
-			
-			};
 				
 		  public static void main(String[] args) {
 		        VentanaInicio vl = new VentanaInicio();      // creamos una ventana

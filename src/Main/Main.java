@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
+import classes.Producto;
 import classes.Usuario;
 import config.BD;
 
@@ -19,12 +20,14 @@ public class Main {
 
 	private static BD db;
 	private static Scanner scanner = new Scanner(System.in);
+	public static ArrayList<Producto> pedido;
 
 	public static void main(String[] args) {
 
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					pedido = new ArrayList<Producto>();
 					VentanaLogin frame = new VentanaLogin();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -79,6 +82,7 @@ public class Main {
 
 
 	public void ejecutarLogin() {
+		
 
 	}
 }

@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import config.BD;
 import classes.Producto;
 import classes.Usuario;
@@ -187,7 +186,7 @@ public class BD {
 	public static void registrarUsuario(String DNI, String nombre, String email, String contrasenya) {
 
 		try (Connection con = DriverManager.getConnection(CONNECTION_STRING); Statement stmt = con.createStatement()) {
-			String query = "INSERT INTO USUARIO VALUES('" + DNI + "','" + nombre + "','" + email + "','" + contrasenya
+			String query = "INSERT INTO USUARIO VALUES(" + 0 + ",'" + DNI + "','" + nombre + "','" + email + "','" + contrasenya
 					+ "')";
 			ResultSet rs = stmt.executeQuery(query);
 		} catch (SQLException e) {

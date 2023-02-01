@@ -21,6 +21,7 @@ import javax.swing.JTextField;
 import java.awt.Insets;
 import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
+import java.util.Iterator;
 import java.awt.event.ActionEvent;
 
 public class VentanaLogin extends JFrame {
@@ -84,15 +85,8 @@ public class VentanaLogin extends JFrame {
 							JOptionPane.INFORMATION_MESSAGE);
 					nick = textField.getText();
 					con = passwordField.getText();
-
-					ventana.setVisible(false);
-					if (nick.equals("admin") && con.equals("admin1")) {
-						VentanaAdmin vpa = new VentanaAdmin();
-						vpa.setVisible(true);
-					} else {
-						VentanaInicio vpc = new VentanaInicio();
-						vpc.setVisible(true);
-					}
+					VentanaInicio i1 = new VentanaInicio();
+					i1.setVisible(true);
 
 				} else if (resultado == 2) {
 					JOptionPane.showMessageDialog(null, "Clave incorrecta", "ERROR", JOptionPane.ERROR_MESSAGE);

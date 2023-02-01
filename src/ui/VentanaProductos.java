@@ -19,7 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
-
+import Main.Main;
 import classes.Producto;
 import config.BD;
 import javax.swing.JTextField;
@@ -27,7 +27,6 @@ import javax.swing.JTextField;
 
 public class VentanaProductos extends JFrame{
 
-			public static ArrayList<Producto> pedido;
 			private static final long serialVersionUID = 1L;
 			private JPanel contentPane;
 			private final Action action = new botonAtras();
@@ -42,9 +41,8 @@ public class VentanaProductos extends JFrame{
 		
 			
 			public VentanaProductos() throws SQLException, IOException {
-				pedido = new ArrayList<Producto>();
 				setResizable(false);
-				getContentPane().add(new JScrollPane(ProductosJTable), BorderLayout.CENTER);
+				add(new JScrollPane(ProductosJTable), BorderLayout.CENTER);
 				dbManager = new BD();
 
 				productos = dbManager.getProducto();
@@ -76,9 +74,12 @@ public class VentanaProductos extends JFrame{
 				ProductosJTable.getColumnModel().getColumn(2).setMinWidth(100);
 				ProductosJTable.getColumnModel().getColumn(3).setMinWidth(100);
 				
+				
+		       // add(new JScrollPane(ProductosJTable), BorderLayout.CENTER);
+		        
 				contentPane.add(ProductosJTable);
 				
-				JLabel lblCantidadProductos = new JLabel("AÑADIDOS AL PEDIDO: " + pedido.size());
+				JLabel lblCantidadProductos = new JLabel("AÑADIDOS AL PEDIDO: " + Main.pedido.size());
 				lblCantidadProductos.setFont(new Font("Tahoma", Font.BOLD, 10));
 				lblCantidadProductos.setForeground(new Color(255, 255, 255));
 				lblCantidadProductos.setBounds(369, 285, 332, 40);
@@ -179,8 +180,8 @@ public class VentanaProductos extends JFrame{
 								e1.printStackTrace();
 							}
 							ProductosJTable.setModel(new ProductosTableModel(productos));
-							pedido.clear();
-							lblCantidadProductos.setText("AÑADIDOS AL PEDIDO: " + pedido.size());
+							Main.pedido.clear();
+							lblCantidadProductos.setText("AÑADIDOS AL PEDIDO: " + Main.pedido.size());
 							textFieldNombre.setText("");
 							textFieldTipo.setText("");
 							textFieldPrecio.setText("");
@@ -213,10 +214,10 @@ public class VentanaProductos extends JFrame{
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         System.out.println("Anyadimos producto");
-                        pedido.add(productos.get(ProductosJTable.getSelectedRow()));
+                        Main.pedido.add(productos.get(ProductosJTable.getSelectedRow()));
                         productos.remove(productos.get(ProductosJTable.getSelectedRow()));
                         ProductosJTable.setModel(new ProductosTableModel(productos));
-                        lblCantidadProductos.setText("AÑADIDOS AL PEDIDO: " + pedido.size());
+                        lblCantidadProductos.setText("AÑADIDOS AL PEDIDO: " + Main.pedido.size());
                     }
                 });
 				
