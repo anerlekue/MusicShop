@@ -6,34 +6,33 @@ import java.util.StringTokenizer;
 
 public class Usuario {
 
-
-	private int id = -1;
+	private int id;
 	private String dni;
 	private String nombre;
-	private String apellido;
 	private String email;
 	private String contrasena;
 	
 	
-	public Usuario(int id, String dni, String nombre, String apellido, String email, String contrasena) {
+	public Usuario(String dni, String nombre, String email, String contrasena) {
 		super();
-		this.id = id;
 		this.dni = dni;
 		this.nombre = nombre;
-		this.apellido = apellido;
 		this.email = email;
 		this.contrasena = contrasena;
 	}
 	
 	public Usuario() {
 		super();
-
+		this.dni = "";
+		this.nombre = "";
+		this.email = "";
+		this.contrasena = "";
 	}
 
 	public int getId() {
 		return id;
 	}
-
+	
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -54,14 +53,6 @@ public class Usuario {
 		this.nombre = nombre;
 	}
 
-	public String getApellido() {
-		return apellido;
-	}
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -80,7 +71,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + ", email="
+		return "Usuario [id=" + id + ", dni=" + dni + ", nombre=" + nombre + ", email="
 				+ email + ", contrasena=" + contrasena + "]";
 	}
 
@@ -90,7 +81,6 @@ public class Usuario {
 		
 		usuario.setDni(tokenizer.nextToken());
 		usuario.setNombre(tokenizer.nextToken());
-		usuario.setApellido(tokenizer.nextToken());
 		usuario.setEmail(tokenizer.nextToken());
 		usuario.setContrasena(tokenizer.nextToken());
 		

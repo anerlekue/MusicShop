@@ -16,7 +16,6 @@ public class UsuarioTest {
 	private Usuario usuario;
 	private String dni = "dni";
 	private String nombre = "nombre";
-	private String apellido = "apellido";
 	private String email = "email";
 	private String contrasena = "contrasena";
 	
@@ -36,7 +35,6 @@ public class UsuarioTest {
 		assertNotNull(usuario);
 		assertEquals(dni, usuario.getDni());
 		assertEquals(nombre, usuario.getNombre());
-		assertEquals(apellido, usuario.getApellido());
 		assertEquals(email, usuario.getEmail());
 		assertEquals(contrasena, usuario.getContrasena());
 	}
@@ -68,18 +66,7 @@ public class UsuarioTest {
 		
 		assertEquals(newNombre, usuario.getNombre());
 	}
-	@Test
-	public void testGetApellido() {
-		assertEquals(apellido, usuario.getApellido());
-	}
 	
-	@Test
-	public void testSetApellido() {
-		String newApellido = " New apellido";
-		usuario.setApellido(newApellido);
-		
-		assertEquals(newApellido, usuario.getApellido());
-	}
 	@Test
 	public void testGetEmail() {
 		assertEquals(email, usuario.getEmail());

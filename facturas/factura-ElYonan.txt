@@ -1,0 +1,8 @@
+Factura
+Fecha: 06/02/2023
+Comprador: ElYonan
+
+Productos:
+Producto [id= 14321, nombre=Guitarra, precio=200, tipo= Instrumento]
+Producto [id=12341, nombre=JBL 800, precio=120, tipo= Altavoz]
+Producto [id= 23452345, nombre=SuperTramp, precio=40, tipo= Disco]

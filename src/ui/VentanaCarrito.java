@@ -4,6 +4,9 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 import javax.swing.AbstractAction;
@@ -11,12 +14,16 @@ import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 import Main.Main;
 import classes.Producto;
+import java.time.format.DateTimeFormatter;  
+import java.time.LocalDateTime;  
+
 public class VentanaCarrito extends JFrame{
 
 	
@@ -24,7 +31,8 @@ public class VentanaCarrito extends JFrame{
 	private JPanel contentPane;
 	private final Action action = new botonAtras();
 	private  ArrayList<Producto> carrito = new ArrayList<Producto>();
-
+	private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");  
+	private LocalDateTime now = LocalDateTime.now();  
 	
 	public VentanaCarrito() {
 		setResizable(false);
@@ -51,7 +59,7 @@ public class VentanaCarrito extends JFrame{
 		
 		JButton btnEliminarpedidos = new JButton("ELIMINAR PEDIDO");
 		btnEliminarpedidos.setFont(new Font("Tahoma", Font.BOLD, 10));
-		btnEliminarpedidos.setBounds(311, 353, 178, 30);
+		btnEliminarpedidos.setBounds(60, 408, 178, 30);
 		contentPane.add(btnEliminarpedidos);
 		
 		JButton btnAtras = new JButton("ATRÁS");
@@ -59,6 +67,13 @@ public class VentanaCarrito extends JFrame{
 		btnAtras.setBounds(700, 412, 89, 22);
 		btnAtras.setAction(action);
 		contentPane.add(btnAtras);
+		
+		JButton btnCrearFactura = new JButton("Crear Factura");
+		btnCrearFactura.setBounds(294, 344, 149, 40);
+		contentPane.add(btnCrearFactura);
+		
+		
+		
 		carrito = Main.pedido;
 			if (carrito != null) {
 				tablapedidos.setModel(new ProductosTableModel(carrito));
@@ -72,8 +87,47 @@ public class VentanaCarrito extends JFrame{
                     tablapedidos.setModel(new ProductosTableModel(carrito));
 					
 				}
+			});	
+
+			btnCrearFactura.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					try {
+						File file = new File("facturas/factura-" + VentanaLogin.getNick() +".txt");
+						FileWriter writer = new FileWriter(file);
+						BufferedWriter buffer = new BufferedWriter(writer);
+						
+						buffer.write("Factura");
+						buffer.newLine();
+						buffer.write("Fecha: " + dtf.format(now));
+						buffer.newLine();
+						buffer.write("Comprador: " + VentanaLogin.getNick());
+						buffer.newLine();
+						buffer.newLine();
+						buffer.write("Productos:");
+						buffer.newLine();
+						for (Producto producto : carrito) {
+							buffer.write(producto.toString());
+							buffer.newLine();
+						}
+
+						buffer.flush();
+						buffer.close();
+						writer.close();
+						
+						JOptionPane.showMessageDialog(null, "Factura creada con exito", "FACTURA",
+								JOptionPane.INFORMATION_MESSAGE);
+
+					} catch (Exception e1) {
+						JOptionPane.showMessageDialog(null, "Error al crear la factura", "FACTURA",
+								JOptionPane.INFORMATION_MESSAGE);
+						e1.printStackTrace();
+					}
+					
+				}
 			});
-		
 		};
 		
 	

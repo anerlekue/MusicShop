@@ -5,8 +5,10 @@ import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 
+import classes.Usuario;
 import config.BD;
 
 import java.awt.BorderLayout;
@@ -29,7 +31,7 @@ public class VentanaRegistro extends JFrame {
 	private JTextField textFieldDNI;
 	private JTextField textFieldNombre;
 	private JTextField textFieldEmail;
-	private JTextField textFieldContra;
+	private JPasswordField textFieldContra;
 
 	/**
 	 * Launch the application.
@@ -89,7 +91,7 @@ public class VentanaRegistro extends JFrame {
 							JOptionPane.showMessageDialog(null, "Este usuario ya existe", "ERROR",
 									JOptionPane.ERROR_MESSAGE);
 						} else {
-							BD.registrarUsuario(textFieldDNI.getText(), textFieldNombre.getText(), textFieldEmail.getText(), textFieldContra.getText());
+							BD.registrarUsuario(new Usuario(textFieldDNI.getText(), textFieldNombre.getText(), textFieldEmail.getText(), textFieldContra.getText()));
 							JOptionPane.showMessageDialog(null, "Registro realizado con Exito", "REGISTRO",
 									JOptionPane.INFORMATION_MESSAGE);
 							ventana.setVisible(false);
@@ -123,7 +125,7 @@ public class VentanaRegistro extends JFrame {
 		gbl_panel_2.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel_2.setLayout(gbl_panel_2);
 		
-		JLabel lblDNI = new JLabel("DNI :");
+		JLabel lblDNI = new JLabel("DNI:");
 		lblDNI.setForeground(new Color(255, 255, 255));
 		lblDNI.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblDNI.setBounds(286, 170, 78, 32);
@@ -143,7 +145,7 @@ public class VentanaRegistro extends JFrame {
 		panel_2.add(textFieldDNI, gbc_textFieldDNI);
 		textFieldDNI.setColumns(10);
 		
-		JLabel lblNombre = new JLabel("Nombre Usuario : ");
+		JLabel lblNombre = new JLabel("Usuario: ");
 		lblNombre.setForeground(new Color(255, 255, 255));
 		lblNombre.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNombre.setBounds(286, 170, 78, 32);
@@ -163,7 +165,7 @@ public class VentanaRegistro extends JFrame {
 		panel_2.add(textFieldNombre, gbc_textFieldNombre);
 		textFieldNombre.setColumns(10);
 		
-		JLabel lblEmail = new JLabel("Email :");
+		JLabel lblEmail = new JLabel("Email:");
 		lblEmail.setForeground(new Color(255, 255, 255));
 		lblEmail.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblEmail.setBounds(286, 170, 78, 32);
@@ -183,7 +185,7 @@ public class VentanaRegistro extends JFrame {
 		panel_2.add(textFieldEmail, gbc_textFieldEmail);
 		textFieldEmail.setColumns(10);
 		
-		JLabel lblPass = new JLabel("Contrasenya : ");
+		JLabel lblPass = new JLabel("Contraseña: ");
 		lblPass.setForeground(new Color(255, 255, 255));
 		lblPass.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblPass.setBounds(286, 170, 78, 32);
@@ -194,7 +196,7 @@ public class VentanaRegistro extends JFrame {
 		gbc_lblPass.gridy = 4;
 		panel_2.add(lblPass, gbc_lblPass);
 		
-		textFieldContra = new JTextField();
+		textFieldContra = new JPasswordField();
 		GridBagConstraints gbc_textFieldContra = new GridBagConstraints();
 		gbc_textFieldContra.insets = new Insets(0, 0, 5, 5);
 		gbc_textFieldContra.fill = GridBagConstraints.HORIZONTAL;
@@ -203,5 +205,4 @@ public class VentanaRegistro extends JFrame {
 		panel_2.add(textFieldContra, gbc_textFieldContra);
 		textFieldContra.setColumns(10);
 	}
-
 }

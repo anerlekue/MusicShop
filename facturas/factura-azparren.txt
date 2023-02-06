@@ -1,0 +1,8 @@
+Factura
+Fecha: 06/02/2023
+Comprador: azparren
+
+Productos:
+Producto [id= 124321, nombre=Panasonic 550, precio=80, tipo= Altavoz]
+Producto [id= 3565436, nombre=Panasonic 4000, precio=130, tipo= Altavoz]
+Producto [id=458865, nombre=Triangulo, precio=20, tipo= Instrumento]

@@ -29,6 +29,8 @@ public class Main {
 				try {
 					pedido = new ArrayList<Producto>();
 					VentanaLogin frame = new VentanaLogin();
+					// user: azparren
+					// pass: elina
 					frame.setVisible(true);
 				} catch (Exception e) {
 					logger.warning(e.getMessage());
@@ -38,19 +40,6 @@ public class Main {
 
 		db = new BD();
 		db.crearBBDD();
-		
-		//Es necesario crear un objeto de tipo usuario
-		Usuario user = new Usuario();
-		user.setNombre("Peter");
-		user.setApellido("Parker");
-		user.setDni("35678293R");
-		user.setEmail("spiderman@gmail.com");
-		user.setContrasena("€sp1d3rm4n");		
-		db.insertarDatos(user);
-		
-		db.actualizarPassword(user, "€sp1d€rm4n2023");
-		System.out.println("dato insertado");
-		
 	
 		//Se abre el fichero usando la utilizadad "try-catch with closeable resources"
 		//NOTA: la ruta relativa exige que el fichero CVS se ponga en la carpeta data.

@@ -183,12 +183,22 @@ public class BD {
 
 	}
 
-	public static void registrarUsuario(String DNI, String nombre, String email, String contrasenya) {
+	public static void registrarUsuario(Usuario usuario) {
 
-		try (Connection con = DriverManager.getConnection(CONNECTION_STRING); Statement stmt = con.createStatement()) {
-			String query = "INSERT INTO USUARIO VALUES(" + 0 + ",'" + DNI + "','" + nombre + "','" + email + "','" + contrasenya
-					+ "')";
-			ResultSet rs = stmt.executeQuery(query);
+		try (Connection con = DriverManager.getConnection(CONNECTION_STRING)) {
+			String query = "INSERT INTO USUARIO(DNI, Nombre, email, contrasenya) VALUES (?, ?, ?, ?);";
+			
+			PreparedStatement pst = con.prepareStatement(query);
+			
+			System.out.println(usuario.toString());
+            pst.setString(1, usuario.getDni());
+            pst.setString(2, usuario.getNombre());
+            pst.setString(3, usuario.getEmail());
+            pst.setString(4, usuario.getContrasena());
+            
+            pst.executeUpdate();
+            pst.close();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

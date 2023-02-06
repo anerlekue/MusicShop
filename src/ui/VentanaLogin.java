@@ -127,7 +127,7 @@ public class VentanaLogin extends JFrame {
 		gbc_lblNewLabel.gridy = 0;
 		panel_2.add(lblNewLabel, gbc_lblNewLabel);
 		
-				JLabel lblUsuario = new JLabel("Usuario :");
+				JLabel lblUsuario = new JLabel("   Usuario :");
 				lblUsuario.setForeground(new Color(255, 255, 255));
 				lblUsuario.setFont(new Font("Tahoma", Font.BOLD, 15));
 				lblUsuario.setBounds(286, 170, 78, 32);
@@ -161,7 +161,7 @@ public class VentanaLogin extends JFrame {
 		gbc_lblNewLabel_2.gridy = 3;
 		panel_2.add(lblNewLabel_2, gbc_lblNewLabel_2);
 		
-				JLabel lblContra = new JLabel("Contrasenya :");
+				JLabel lblContra = new JLabel("Contraseña :");
 				lblContra.setForeground(new Color(255, 255, 255));
 				lblContra.setFont(new Font("Tahoma", Font.BOLD, 15));
 				lblContra.setBounds(286, 170, 78, 32);
